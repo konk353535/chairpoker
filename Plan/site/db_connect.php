@@ -1,7 +1,7 @@
 <?php
 	try 
 	{	
-		$dbh = new PDO('../db/sqlite:TownsvilleMusicCentre.sqlite');
+		$dbh = new PDO('sqlite:../db/TownsvilleMusicCentre.sqlite');
 	}
 	catch(PDOException $e)
 	{
