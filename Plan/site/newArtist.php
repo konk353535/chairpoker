@@ -3,7 +3,7 @@
 <html>
 <head lang="en">
     <meta charset="UTF-8">
-    <title></title>
+    <title>Insert new artist</title>
 </head>
 <body>
 <h1>Insert new Artist:</h1>

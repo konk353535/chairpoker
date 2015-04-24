@@ -3,17 +3,16 @@
 <html>
 <head lang="en">
     <meta charset="UTF-8">
-    <title></title>
+    <title>Insert new artist run page</title>
     <?php
     	function createImageFileName($artist_title, $artist_id, $extension)
     	{
     		// remove whitespace before it breaks something
     		$artist_title = trim($artist_title);
     		
+    		$split_title = explode(" ", $artist_title);
     		// the first 4 letters of words sepearated by spaces (if any) in $artist_title
     		// are used as part of the filename
-    		$split_title = explode(" ", $artist_title);
-    		
     		$result = "";
     		foreach($split_title as $prefix_portion)
     		{
