@@ -14,17 +14,19 @@
 		<input type="text" name="A_Title">
 	</p>
 	<p>
-		<label for="C_Id">Artist Category: </label>
-		<select name="C_Id">
-		<!-- grab all categories currently in the database -->
-		<?php
-			$categories = $dbh->query("SELECT * FROM Category");
-			foreach($categories as $row)
-			{
-				echo "<option value='" . $row["C_Id"] ."'>" . $row["C_Name"] . "</option>\n";
-			}
-		?>
-		</select>
+		<div id="categoryDropDownsContainer">
+			<label for="C_Id">Artist Category: </label>
+			<select name="C_Id">
+			<!-- grab all categories currently in the database -->
+			<?php
+				$categories = $dbh->query("SELECT * FROM Category");
+				foreach($categories as $row)
+				{
+					echo "<option value='" . $row["C_Id"] ."'>" . $row["C_Name"] . "</option>\n";
+				}
+			?>
+			</select>
+		</div>
 	</p>
 	<p>
 		<label for="A_Email">Email: </label>
@@ -43,6 +45,7 @@
 		<input type="text" name="A_Mobile">
 	</p>
 	<p>
+		<label for="ArtistImage">Artist Photo File: </label>
 		<input type="file" name="ArtistImage" />
 	</p>
 	<p>

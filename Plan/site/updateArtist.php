@@ -21,10 +21,12 @@
 				"<td>" . $row["A_PhoneDay"] . "</td>" . 
 				"<td>" . $row["A_PhoneAfter"] . "</td>" . 
 				"<td>" . $row["A_Mobile"] . "</td>\n" . 
-				"<td><a href='updateArtistProcess.php?artist_id='" . $row["A_Id"] . "'>Edit</a></td>";
+				"<td><a href='updateArtistForm.php?artist_id=" . $row["A_Id"] . "'>Edit</a></td>";
 		echo "</tr>\n";
 	}
 	echo "</table>"
 ?>
+
+<a href='index.html'>Return to Home</a>
 </body>
 </html>
