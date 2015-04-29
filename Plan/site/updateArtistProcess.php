@@ -8,24 +8,25 @@
 <body>
 <?php
 	$sql_artist_update = "UPDATE Artist SET" . 
-					" A_Title = " . $_POST["A_Title"] . 
-					", A_Email = " . $_POST["A_Email"] . 
-					", A_PhoneDay = " . $_POST["A_PhoneDay"] . 
-					", A_PhoneAfter = " . $_POST["A_PhoneAfter"] . 
-					", A_Mobile = " . $_POST["A_Mobile"] .
-					" WHERE A_Id = " . $_POST["A_Id"];
+					" A_Title = '" . $_POST["A_Title"] . 
+					"', A_Email = '" . $_POST["A_Email"] . 
+					"', A_PhoneDay = '" . $_POST["A_PhoneDay"] . 
+					"', A_PhoneAfter = '" . $_POST["A_PhoneAfter"] . 
+					"', A_Mobile = '" . $_POST["A_Mobile"] .
+					"' WHERE A_Id = '" . $_POST["A_Id"] . "'";
 	try 
 	{
 
 		$dbh->beginTransaction();
 		$dbh->exec($sql_artist_update);
-
+		var_dump($_POST["C_Id"]);
 		foreach($_POST["C_Id"] as $id)
 		{
 			$sql_artist_category_update = "INSERT INTO ArtistCategory (A_Id, C_Id) VALUES (" . 
 											$_POST["A_Id"] . 
 											", " . $id . 
 											")";
+			var_dump($sql_artist_category_update);
 			$dbh->exec($sql_artist_category_update);
 		}
 
@@ -51,7 +52,7 @@
 	}
 	catch(Exception $e)
 	{
-		$dbh->rollback();
+		$dbh->rollBack();
 		echo "Failed to update artist: " . $e->getMessage();
 	}
 

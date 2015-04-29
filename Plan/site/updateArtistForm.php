@@ -13,7 +13,7 @@
     		stringToConcatenate += "<select name='C_Id[" + dropDownNo + "]'>\n";
     		for(var i = 0; i < categoriesFields.length; i++)
     		{
-    			stringToConcatenate += "<option value='"  + categoriesFields[i] + "'>" + categoriesValues[i] + "\n";
+    			stringToConcatenate += "<option value='"  + categoriesFields[i] + "'>" + categoriesValues[i];
     		}
     		stringToConcatenate += "</select><br/>";
     		categoryContainer.innerHTML += stringToConcatenate;
@@ -43,13 +43,13 @@
 		//construct arrays to pass to javascript 
 		$category_fields = array();
 		$category_values = array();
-		foreach($categories as $key => $jRow)
+		foreach($categories as $jRow)
 		{
 			if($jRow["C_Id"] == $iRow["C_Id"])
 				echo "<option value='" . $jRow["C_Id"] ."' selected>" . $jRow["C_Name"] . "</option>\n";
 			else
 				echo "<option value='" . $jRow["C_Id"] ."'>" . $jRow["C_Name"] . "</option>\n";
-			array_push($category_fields, $key);
+			array_push($category_fields, $jRow["C_Id"]);
 			array_push($category_values, $jRow["C_Name"]);
 		}
 		echo "</select><br/>";
