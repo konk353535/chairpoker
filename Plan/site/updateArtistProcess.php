@@ -19,14 +19,12 @@
 
 		$dbh->beginTransaction();
 		$dbh->exec($sql_artist_update);
-		var_dump($_POST["C_Id"]);
 		foreach($_POST["C_Id"] as $id)
 		{
 			$sql_artist_category_update = "INSERT INTO ArtistCategory (A_Id, C_Id) VALUES (" . 
 											$_POST["A_Id"] . 
 											", " . $id . 
 											")";
-			var_dump($sql_artist_category_update);
 			$dbh->exec($sql_artist_category_update);
 		}
 

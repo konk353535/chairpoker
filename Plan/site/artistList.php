@@ -42,7 +42,7 @@
 		}
 
 		//lazy filler space
-		echo "<br/><hr><br/><br/>\n";
+		echo "<br/><hr><br/>\n";
 
 	}
 

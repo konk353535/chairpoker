@@ -14,7 +14,6 @@
 	$sql_delete_image_refs = "DELETE FROM ArtistImage WHERE A_Id = " . $artist_id;
 
 	$sql_delete_artist_categories = "DELETE FROM ArtistCategory WHERE A_Id = " . $artist_id;
-
 	try 
 	{
 		$dbh->beginTransaction();
