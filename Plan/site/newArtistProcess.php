@@ -45,30 +45,37 @@
 		$dbh->exec($sql_insert_artist);
 		$new_artist_id = $dbh->lastInsertId();
 
-		//get the stored image and put it in our directory
-		$temp_image_filename = $_FILES['ArtistImage']['tmp_name'];
-		//grab the file extension, eg ".jpg", ".bmp"
-		$file_extension = substr($_FILES['ArtistImage']['name'], strrpos($_FILES['ArtistImage']['name'], '.'));
-		//create the file name the file will be stored as
-		$image_filename = createImageFileName($_POST["A_Title"], $new_artist_id, $file_extension);
-		if(!move_uploaded_file($temp_image_filename, "../db/images/" . $image_filename))
+		// verify that an image was uploaded
+		if(!empty($_FILES["ArtistImage"]['name']))
 		{
-			throw new Exception("failed to upload image: " . $temp_image_filename);
-		}
+			
+			//get the stored image and put it in our directory
+			$temp_image_filename = $_FILES['ArtistImage']['tmp_name'];
+			//grab the file extension, eg ".jpg", ".bmp"
+			$file_extension = substr($_FILES['ArtistImage']['name'], strrpos($_FILES['ArtistImage']['name'], '.'));
+			//create the file name the file will be stored as
+			$image_filename = createImageFileName($_POST["A_Title"], $new_artist_id, $file_extension);
+			if(!move_uploaded_file($temp_image_filename, "../db/images/" . $image_filename))
+			{
+				throw new Exception("failed to upload image: " . $temp_image_filename);
+			}
 
-		//put image entry in Image table, uses new artist's id for filename, so needs to be a part of the transaction
-		$sql_insert_image = "INSERT INTO Image (Img_Ref) VALUES ('images/" . $image_filename . "')";
-		$dbh->exec($sql_insert_image);
-		$new_image_id = $dbh->lastInsertId();
-		//create association in ArtistImage
-		$dbh->exec("INSERT INTO ArtistImage(A_Id, Img_Id) VALUES (" . $new_artist_id . ", " . $new_image_id . ")");
-		// add A_MainImageId value now that we have information about the new image entry
-		$dbh->exec("UPDATE Artist A_MainImageId = " . $new_image_id . " WHERE A_Id = " . $new_artist_id);
+			//put image entry in Image table, uses new artist's id for filename, so needs to be a part of the transaction
+			$sql_insert_image = "INSERT INTO Image (Img_Ref) VALUES ('images/" . $image_filename . "')";
+			$dbh->exec($sql_insert_image);
+			$new_image_id = $dbh->lastInsertId();
+			//create association in ArtistImage
+			$dbh->exec("INSERT INTO ArtistImage(A_Id, Img_Id) VALUES (" . $new_artist_id . ", " . $new_image_id . ")");
+			// add A_MainImageId value now that we have information about the new image entry
+			$dbh->exec("UPDATE Artist A_MainImageId = " . $new_image_id . " WHERE A_Id = " . $new_artist_id);
+		}
 		//put category entry in ArtistCategory table
 		$sql_insert_category = "INSERT INTO ArtistCategory (A_Id, C_Id) VALUES (" . $new_artist_id . ", " . $_POST["C_Id"] . ")";
 		$dbh->exec($sql_insert_category);
 
 		$dbh->commit();
+		echo "<p>Successfully inserted new Artist!</p><br/>
+		<a href='newArtist.php'>Back to form</a>";
 	}
 	catch(Exception $e)
 	{
@@ -76,8 +83,8 @@
 		echo "Failed to insert new Artist: " . $e->getMessage();
 	}
 
-	echo "<p>Successfully inserted new Artist!</p><br/>
-		<a href='newArtist.php'>Back to form</a>";
+	
+
 
 ?>
 </body>
