@@ -1,0 +1,90 @@
+@charset "utf-8";
+#wrapper {
+	margin-left: auto;
+	margin-right: auto;
+	background-color: #878787;
+	width: 1001px;
+}
+#header {
+	padding-bottom: 5px;
+	padding-left: 5px;
+	padding-right: 5px;
+	padding-top: 5px;
+}
+#nav {
+	text-align: left;
+}
+#main1 {
+	width: 645px;
+	float: left;
+	padding-left: 5px;
+	margin-left: 5px;
+}
+#main2 {
+	float: right;
+	width: 330px;
+	padding-left: 5px;
+	margin-right: 5px;
+}
+#footer {
+	float: left;
+	width: 1000px;
+	color: #FFFFFF;
+	background-color: #000000;
+}
+li {
+	display: inline-block;
+	float: left;
+	padding-right: 0px;
+	font-size: 16px;
+	padding-left: 0px;
+}
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+#form1 {
+	float: right;
+	text-align: center;
+}
+.banner  {
+	font-size: 40px;
+}
+#main1 p {
+	padding-left: 10px;
+	font-family: Segoe, "Segoe UI", "DejaVu Sans", "Trebuchet MS", Verdana, sans-serif;
+	font-size: 14px;
+}
+#nav a:link, a:visited {
+    display: block;
+    width: 110px;
+    font-weight: bold;
+    color: #FFFFFF;
+    background-color: #AAAAAA;
+    text-align: center;
+    padding: 4px;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+#nav a:hover, a:active {
+    background-color: #444444;
+}
+#main2 h1 {
+	font-size: 20px;
+	font-weight: bold;
+	font-family: Tahoma, sans-serif;
+}
+#main2 p  {
+	padding-left: 10px;
+	font-family: Segoe, "Segoe UI", "DejaVu Sans", "Trebuchet MS", Verdana, sans-serif;
+	font-size: 12px;
+}
+#main1 h1 {
+	font-family: Tahoma, sans-serif;
+	font-weight: bold;
+	font-size: 30px;
+}
+.navSearch {
+	width: 174px;
+}
