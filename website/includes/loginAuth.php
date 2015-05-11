@@ -18,7 +18,7 @@
             $row = $result->fetch(PDO::FETCH_ASSOC);
             // verify that this email exists in the database
             // PDO::fetch returns false for some reason if the dataset is empty... checking for that here.  Short circuiting keeps code a little clean at least
-            if($row == FALSE || md5($_POST['password']) != $row['Member_PasswordHash'])
+            if($row === FALSE || md5($_POST['password']) != $row['Member_PasswordHash'])
             {
                 $_SESSION['errMsg'] = "Invalid Email Address or Password";
                 header("Location: " . $_GET['redirect']);
