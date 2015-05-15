@@ -27,7 +27,19 @@
   <p><a href="index.html"><img src="TCMC Images Docs/SiteImages/TCMC150100.jpg" width="150" height="100" alt="Townsville Community Music Centre"/></a><span class="banner">Townsvile Community Music Centre</span>  </p>
 </div>
 
-<?php include("../include/inc_nav.php"); ?>
+<div id="nav">
+<ul>
+  <li><a href="index.html">Home</a></li>
+  <li><a href="events.html">Events</a></li>
+  <li><a href="bulletin.html">Bulletin</a></li>
+  <li><a href="artists.html">Artists</a></li>
+  <li><a href="signUp.html">Sign Up</a></li>
+  <li><a href="contact.html">Contact</a></li>
+  <li><a href="userProfile.html">My Profile</a></li>
+  <li><form><input type="search" class="navSearch" placeholder="Search">
+  </form></li>
+</ul>
+</div>
 <br>
 <div id="main1">
   <h1>Sign Up  </h1>

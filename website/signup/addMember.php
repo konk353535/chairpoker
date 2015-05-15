@@ -1,5 +1,5 @@
 <?php
-	include("include/db_connect.php");
+	include("../include/db_connect.php");
     if(!isset($_POST['signUpForm'])){
         // probably here by accident, let's go somewhere more sensible
         header("Location: index.html");
@@ -39,4 +39,5 @@
         }
 		exit();
     }
+
 ?>
