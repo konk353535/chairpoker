@@ -5,6 +5,20 @@
         header("Location: index.html");
        	exit();
     }
+
+	// verify that this email is not already in the database
+	$all_member_emails = $dbh->query("SELECT Member_Email FROM Member");
+	while($row = $all_member_emails->fetch())
+	{
+		if($_POST['Email'] == $row['Member_Email'])
+		{
+			// email already exists
+			session_start();
+			$_SESSION['errMsg'] = "That email is already in use by another member.";
+			header("Location: " . $_GET['redirectFail']);
+			exit();
+		}
+	}
     $new_member_statement = $dbh->prepare("INSERT INTO Member (Member_Email, Member_PasswordHash, Member_Fname, 
                                             Member_Sname, Member_AuthLevelId) VALUES(
                                             :Email ,

@@ -26,13 +26,12 @@
 			}
 			exit();
 		}
-		$result = $dbh->query("SELECT Member_Id, Member_Fname, Member_Sname FROM Member 
+		$member_details = $dbh->query("SELECT Member_Id, Member_Fname, Member_Sname FROM Member 
 								WHERE Member_Id = " . $result['Member_Id'])->fetch();
-		var_dump($result);
 		session_regenerate_id();
-		$_SESSION['Member_Id'] = $result['Member_Id'];
-		$first_name = $result['Member_Fname'];
-		$last_name = $result['Member_Sname'];
+		$_SESSION['Member_Id'] = $member_details['Member_Id'];
+		$first_name = $member_details['Member_Fname'];
+		$last_name = $member_details['Member_Sname'];
 		$_SESSION['Email'] = $_POST['Email'];
 		$_SESSION['Name'] = $first_name . " " . $last_name;
 		unset($_SESSION['errMsg']);
