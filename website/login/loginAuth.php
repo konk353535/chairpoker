@@ -26,14 +26,12 @@
 			}
 			exit();
 		}
-		$member_details = $dbh->query("SELECT Member_Id, Member_Fname, Member_Sname FROM Member 
+		$member_details = $dbh->query("SELECT Member_Id, Member_Fname, Member_Sname, Member_AuthLevelId FROM Member 
 								WHERE Member_Id = " . $result['Member_Id'])->fetch();
 		session_regenerate_id();
 		$_SESSION['Member_Id'] = $member_details['Member_Id'];
-		$first_name = $member_details['Member_Fname'];
-		$last_name = $member_details['Member_Sname'];
-		$_SESSION['Email'] = $_POST['Email'];
-		$_SESSION['Name'] = $first_name . " " . $last_name;
+		$_SESSION['Name'] = $member_details['Member_Fname'] . " " . $member_details['Member_Sname'];
+		$_SESSION['AuthLevel'] = $member_details['Member_AuthLevelId'];
 		unset($_SESSION['errMsg']);
 		header("Location: " . $_GET['redirect']);
 		exit();

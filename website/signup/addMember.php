@@ -1,4 +1,5 @@
 <?php
+	session_start();
 	include("../include/db_connect.php");
     if(!isset($_POST['signUpForm'])){
         // probably here by accident, let's go somewhere more sensible
@@ -13,7 +14,6 @@
 		if($_POST['Email'] == $row['Member_Email'])
 		{
 			// email already exists
-			session_start();
 			$_SESSION['errMsg'] = "That email is already in use by another member.";
 			header("Location: " . $_GET['redirectFail']);
 			exit();
@@ -34,11 +34,10 @@
                                     ":AuthLevelId" => 1));
     if($new_member_statement->rowCount() > 0) {
         // successfully signed up, automatically sign in and direct to profile
-        session_start();
         session_regenerate_id();
         $_SESSION['Member_Id'] = $dbh->lastInsertId();
-        $_SESSION['Email'] = $_POST['Email'];
         $_SESSION['Name'] = $_POST['Fname'] . " " . $_POST['Sname'];
+		$_SESSION['AuthLevel'] = 1;
         
        	header("Location: userProfile.php");
         exit();
