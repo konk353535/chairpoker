@@ -26,7 +26,7 @@
 }
 #footer {
 	float: left;
-	width: 1000px;
+    width: 100%;
 	color: #FFFFFF;
 	background-color: #000000;
 }
@@ -144,4 +144,14 @@
 }
 .bg-navbar {
     background-color: #AAAAAA;
+}
+
+.mainContent {
+    width: 66%;
+    display: inline-block;
+}
+
+.sideContent {
+    width: 33%;
+    display: inline-block;
 }
