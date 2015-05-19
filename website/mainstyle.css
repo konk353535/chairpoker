@@ -3,17 +3,15 @@
 	margin-left: auto;
 	margin-right: auto;
 	background-color: #878787;
-	width: 1001px;
+	width: 980px;
 }
 #header {
-	padding-bottom: 5px;
+	padding-bottom: 10px;
 	padding-left: 5px;
 	padding-right: 5px;
-	padding-top: 5px;
+	padding-top: 10px;
 }
-#nav {
-	text-align: left;
-}
+
 #main1 {
 	width: 645px;
 	float: left;
@@ -32,20 +30,21 @@
 	color: #FFFFFF;
 	background-color: #000000;
 }
-li {
+/*
+.navbar li {
 	display: inline-block;
 	float: left;
 	padding-right: 0px;
 	font-size: 16px;
 	padding-left: 0px;
 }
-ul {
+.navbar ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
 }
+*/
 #form1 {
-	float: right;
 	text-align: center;
 }
 .banner  {
@@ -56,7 +55,8 @@ ul {
 	font-family: Segoe, "Segoe UI", "DejaVu Sans", "Trebuchet MS", Verdana, sans-serif;
 	font-size: 14px;
 }
-#nav a:link, a:visited {
+/*
+.navbar a:link, a:visited {
     display: block;
     width: 110px;
     font-weight: bold;
@@ -67,9 +67,10 @@ ul {
     text-decoration: none;
     text-transform: uppercase;
 }
-#nav a:hover, a:active {
+.navbar a:hover, a:active {
     background-color: #444444;
 }
+*/
 #main2 h1 {
 	font-size: 20px;
 	font-weight: bold;
@@ -87,4 +88,60 @@ ul {
 }
 .navSearch {
 	width: 174px;
+}
+
+.headerWords {
+    width: 58%;
+    display: inline-block;
+    text-align: center;
+}
+
+.headerImage {
+    width: 16%;
+    display: inline-block;
+}
+
+.loginForm {
+    width: 25%;
+    float: right;
+    display: inline-block;
+}
+
+.input {
+    margin-bottom: 5px;
+}
+
+.Navbar {
+    background-color: #FFFFFF;
+}
+
+.navbar ul li a{
+    display: inline-block;
+    padding: 10px;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+.navbar ul li{
+    display: inline;
+    text-align: center;
+}
+.navbar ul{
+    padding: 0px;
+    margin: 0px;
+}
+.navbar {
+    margin-top: 0px;
+    margin-bottom: 10px;
+    background-color: inherit;
+}
+.navbar ul li a:hover, .navbar ul li a:active {
+    background-color: #444444;
+    color: #ebebeb;
+}
+.navbar a {
+    text-decoration: none;   
+    color: #ebebeb;
+}
+.bg-navbar {
+    background-color: #AAAAAA;
 }
