@@ -147,11 +147,21 @@
 }
 
 .mainContent {
-    width: 66%;
+    width: 60%;
     display: inline-block;
+    background-color: #878787;
+    padding: 10px;
 }
 
 .sideContent {
     width: 33%;
     display: inline-block;
+    background-color: #878787;
+    padding: 10px;
+    float: right;
+}
+.allContent {
+	margin-left: auto;
+	margin-right: auto;
+	width: 980px;
 }
