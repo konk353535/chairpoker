@@ -11,7 +11,6 @@
 	function authenticate_user_is($req_usertype, $redirect_on_fail){
 		if(!isset($_SESSION['AuthLevelId'])){
 			// not logged in
-			$_SESSION
 			header("Location: " . $redirect_on_fail);			
 		}
 		if($_SESSION['AuthLevelId'] != $req_usertype){
@@ -23,11 +22,10 @@
 	function authenticate_user_at_least($req_usertype, $redirect_on_fail){
 		if(!isset($_SESSION['AuthLevelId'])){
 			// not logged in
-			$_SESSION
 			header("Location: " . $redirect_on_fail);			
 		}
 		if($_SESSION['AuthLevelId'] < $req_usertype){
-			header("Location: " . $redirect_on_fail);
+			header("Location: http://" . $_SERVER['HTTP_HOST'] . $redirect_on_fail);
 		}
 		// do nothing if logged in as appropriate user
 	}
