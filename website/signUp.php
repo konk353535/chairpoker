@@ -19,9 +19,6 @@
 	});
 	</script>
 	<script>
-		window.onload = function(){
-			
-		}
 		function input_validate_member(){
 			var messages = "";
 			if(document.getElementById("Email").value.trim() === ""){

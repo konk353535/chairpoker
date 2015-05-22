@@ -28,7 +28,7 @@
                                             :AuthLevelId)");
     $new_member_statement->execute(array(
                                     ":Email" => $_POST['Email'],
-                                    ":PasswordHash" => password_hash($_POST['Password1'], PASSWORD_DEFAULT),
+                                    ":PasswordHash" => password_hash($_POST['Password'], PASSWORD_DEFAULT),
                                     ":Fname" => $_POST['Fname'],
                                     ":Sname" => $_POST['Sname'],
                                     ":AuthLevelId" => 1));

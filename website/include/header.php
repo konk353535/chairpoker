@@ -2,11 +2,13 @@
 <div class="wrapper bgPrimary">
     <div id="header">
 		<?php
+			$uri = $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
 			//check if logged in
-			if(isset($_SESSION['Member_Id'])){
+			if(isset($_SESSION['Name'])){
 		?>
 		<!-- unsure how to style this -->
 		<div class="loginForm">
+			<span>Hello, <?php echo $_SESSION['Name']; ?></span>
 			<form id="form1" name="form1" method="post" action="login/logout.php?redirect=<?php echo $uri; ?>">
 				<a href="userProfile.php">My Profile</a>
 				<input type="submit" name="logout" value="Log Out" class="input"><br />
