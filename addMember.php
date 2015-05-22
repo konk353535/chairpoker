@@ -1,6 +1,6 @@
 <?php
 	session_start();
-	include("../include/db_connect.php");
+	include("db_connect.php");
     if(!isset($_POST['signUpForm'])){
         // probably here by accident, let's go somewhere more sensible
         header("Location: index.html");
@@ -28,7 +28,7 @@
                                             :AuthLevelId)");
     $new_member_statement->execute(array(
                                     ":Email" => $_POST['Email'],
-                                    ":PasswordHash" => password_hash($_POST['Password'], PASSWORD_DEFAULT),
+                                    ":PasswordHash" => md5($_POST['Password']),
                                     ":Fname" => $_POST['Fname'],
                                     ":Sname" => $_POST['Sname'],
                                     ":AuthLevelId" => 1));

@@ -1,3 +1,4 @@
+<?php session_start() ?>
 <!doctype html>
 <html>
 <head>
@@ -18,33 +19,36 @@
 <!-- All Content -->
 <div class="allContent">
     <div class="mainContent bgPrimary">
-	  <h1>Test userProfile  </h1>
-	  <?php
-		if(isset($_SESSION)){
-			var_dump($_SESSION);
-		}
-		else {
-			echo "<p> no session </p>";
-		}
-	  ?>
+  <?php
+    if(isset($_SESSION['errMsg']))
+    {
+      echo "<div class='error_output'>" . $_SESSION['errMsg'] . "</div>";
+    }
+  ?>
+  <form name="loginForm" method="post" action="loginAuth.php?redirect=../userProfile.php&redirectFailure=loginPage.php">
+  <p>
+    <input name="Email" type="text" id="textfield" placeholder="Email address">
+    </p>
+  <p>
+    <input name="password" type="password" id="password" placeholder="********">
+  </p>
+  <p>
+    <input type="submit" name="loginForm" id="button" value="Log in">
+  </p>
+  </form>
 	</div>
-
-<div class="sideContent bgPrimary">
-        <h1>Hello</h1>
-        <p>Test</p>
-    </div>
-
+</div>
+<div id="main2">
+<h1>Main2 Header1</h1>
+<p>Main2 p text. </p>
 </div>
 <!-- End of all Content -->
-
 <!-- Footer Template -->
-
 <div class="wrapper bgPrimary">
     <div class="footer">
         Footer Content 
     </div>
 </div>
-
 <!-- End Footer Template -->
 </body>
 </html>

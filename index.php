@@ -18,11 +18,11 @@
 <body>
 
 <!-- Logo + Login Form + Text Title -->
-<?php include('include/header.php'); ?>
+<?php include('template/header.php'); ?>
 <!-- End of header (Logo/LoginForm/TextTitle) -->
 
 <!-- Nav Bar -->
-<?php include('include/inc_nav.php'); ?>
+<?php include('template/inc_nav.php'); ?>
 
 <!-- All Content -->
 <div class="allContent">

@@ -1,12 +1,13 @@
 <?php
-	/* WORK IN PROGESS */
     /* this file is used as the target when the login form is submitted.  
         it is advised to set a variable called redirectFailure in the query string 
         so the user is returned there when invalid password/emails are given, and another called redirect
         for when they successfully log in
     */
+	error_reporting(E_ALL);
     session_start();
-    include("../include/db_connect.php");
+
+    include("db_connect.php");
 	
 	// if we got here from the site's login form, handle that
 	if(isset($_POST['loginForm']))
@@ -15,19 +16,21 @@
 		$credentials_statement->execute(array($_POST['Email']));
 		$result = $credentials_statement->fetch();
 		// verify that this email and a matching password exists in the database
-		if($result === FALSE || !password_verify($_POST['password'], $result['Member_PasswordHash']))
+		if($result === FALSE || md5($_POST['password']) !== $result['Member_PasswordHash'])
 		{
 			$_SESSION['errMsg'] = "Invalid Email Address or Password";
 			if(isset($_GET['redirectFailure'])){
-				header("Location: " . $_GET['redirectFailure']);
+			//	header("Location: " . $_GET['redirectFailure']);
 			}
 			else {
-				header("Location: ../index.html");
+			//	header("Location: ../index.html");
 			}
-			exit();
+			//exit();
 		}
+		
 		$member_details = $dbh->query("SELECT Member_Id, Member_Fname, Member_Sname, Member_AuthLevelId FROM Member 
 								WHERE Member_Id = " . $result['Member_Id'])->fetch();
+		
 		session_regenerate_id();
 		$_SESSION['Member_Id'] = $member_details['Member_Id'];
 		$_SESSION['Name'] = $member_details['Member_Fname'] . " " . $member_details['Member_Sname'];

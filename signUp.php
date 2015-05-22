@@ -1,4 +1,4 @@
-<?php session_start(); ?>
+
 <!doctype html>
 <html>
 <head>
@@ -52,11 +52,11 @@
 <body>
 
 <!-- Logo + Login Form + Text Title -->
-<?php include('include/header.php'); ?>
+<?php include('template/header.php'); ?>
 <!-- End of header (Logo/LoginForm/TextTitle) -->
 
 <!-- Nav Bar -->
-<?php include('include/inc_nav.php'); ?>
+<?php include('template/inc_nav.php'); ?>
 
 <!-- All Content -->
 <div class="allContent">
@@ -64,7 +64,7 @@
     <!-- Main Content Here -->
       <h1>Sign up Today:</h1>
 		<!-- needs styling to format -->
-		<form id="signUpForm" method="post" action="signup/addMember.php?redirectFail=signUp.php" onsubmit="return input_validate_member()">
+		<form id="signUpForm" method="post" action="addMember.php?redirectFail=signUp.php" onsubmit="return input_validate_member()">
 			<label for="Email">Email Address:</label>
 			<input type="text" name="Email" id="Email">
 			<label for="Fname">First Name(s):</label>

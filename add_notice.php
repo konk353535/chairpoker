@@ -27,11 +27,11 @@
 <body>
 
 <!-- Logo + Login Form + Text Title -->
-<?php include('include/header.php'); ?>
+<?php include('template/header.php'); ?>
 <!-- End of header (Logo/LoginForm/TextTitle) -->
 
 <!-- Nav Bar -->
-<?php include('include/inc_nav.php'); ?>
+<?php include('template/inc_nav.php'); ?>
 
 <!-- All Content -->
 <div class="allContent">
@@ -39,10 +39,7 @@
 
     	<?php
 		// Connect to our database
-		include("../include/db_connect.php");
-
-		// Start Session for this page
-		session_start();
+		include("db_connect.php");
 
 		// Check that user is logged in (only registered users can make notices)
 		$auth_level = $_SESSION['AuthLevel'];
