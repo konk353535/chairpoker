@@ -150,3 +150,18 @@ h1 {
 body {
     background-color: #f8f8f8;
 }
+
+.label {
+    text-decoration: bold;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    display: inline-block;
+}
+
+.full_width {
+    width: 100%;
+}
+
+.no_resize {
+    resize: vertical;
+}
