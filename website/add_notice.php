@@ -47,6 +47,7 @@
 		// Check that user is logged in (only registered users can make notices)
 		$auth_level = $_SESSION['AuthLevel'];
 
+		echo "Auth level = " . $auth_level;
 		if($auth_level > 3){
 			// User is registered
 		}
