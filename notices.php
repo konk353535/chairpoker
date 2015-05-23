@@ -25,8 +25,8 @@
 <?php include('template/inc_nav.php'); ?>
 
 <!-- All Content -->
-<div class="allContent">
-    <div class="mainContent bgPrimary">
+<div class="allContent bgPrimary">
+	<div class="mainContent">
   	<?php
 
 	// Begin session so we can check if the user is logged in
@@ -172,12 +172,7 @@
 		}
 	?>
 	</table>
-    </div>
-    <div class="sideContent bgPrimary">
-        <h1>Hello</h1>
-        <p>Test</p>
-    </div>
-
+</div>
 </div>
 <!-- End of all Content -->
 

@@ -34,8 +34,8 @@
 <?php include('template/inc_nav.php'); ?>
 
 <!-- All Content -->
-<div class="allContent">
-    <div class="mainContent bgPrimary">
+<div class="allContent bgPrimary">
+    <div class="mainContent">
 
     	<?php
 		// Connect to our database
@@ -73,14 +73,7 @@
 		<input type="submit" name="button" value="Submit" >
 	</form>
 	<div id="errorOutput"></div>
-    <!-- End of Main Content -->
-
     </div>
-    <div class="sideContent bgPrimary">
-        <h1>Hello</h1>
-        <p>Test</p>
-    </div>
-
 </div>
 <!-- End of all Content -->
 

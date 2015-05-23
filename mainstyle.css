@@ -121,8 +121,6 @@
 }
 
 .mainContent {
-    width: 60%;
-    display: inline-block;
     padding: 10px;
 }
 
@@ -155,7 +153,9 @@ h1 {
     padding: 15px;
     border-radius: 8px;
 }
-
+.text_center {
+    text-align: center;
+}
 body {
     background-color: #f8f8f8;
 }
