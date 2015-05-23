@@ -18,19 +18,33 @@
 <!-- All Content -->
 <div class="allContent">
     <div class="mainContent bgPrimary">
-	  <?php
-		if(isset($_SESSION['AuthLevel'])){
-	  		echo "<h1>Your Membership Profile</h1>";
-			if($_SESSION['AuthLevel'] == 3) {
-				echo "<p>As a member with Administrator rights, you can make manual adjustments to the site's user submitted notices, artists, and information for upcoming events.</p>\n
-				<a href='adminControlPage.php'>Control Page</a>";
+		<?php 
+			include('authenticateFunctions.php'); 
+			if(!isset($_SESSION['AuthLevel']) || $_SESSION['AuthLevel'] != 3){
+				echo "<div class='error_message'>You need to be logged in with administrator rights to access this resource</div>";
 			}
-			
-	    }
-        else {
-	    	echo "<div class='error_message'>You must log in to access your profile</div>";
-	    }
-	  ?>
+			else{
+		?>
+			<ul>
+				<li>
+					<a href='memberList.php'>All Members</a>
+				</li>
+				<li>
+					<a href='artistList.php'>All Artists</a>
+				</li>
+				<li>
+					<a href='artistCategories.php'>Artist Category Types</a>
+				</li>
+				<li>
+					<a href='.php'>All Members</a>
+				</li>
+				
+				
+			</ul>
+		<?php
+			}
+		?>
+	  	
 	</div>
 
 	<div class="sideContent bgPrimary">

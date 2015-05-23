@@ -108,6 +108,10 @@
     background-color: #444444;
     color: #FFFFFF;
 }
+.navbarSelected {
+	background-color: #444444;
+    color: #FFFFFF;
+}
 .navbar a {
     text-decoration: none;   
     color: #FFFFFF;
