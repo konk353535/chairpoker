@@ -58,9 +58,67 @@
 	                                  ":notice_description" => $notice_description,
 	                                  ":member_id" => $member_id));
 
+			// Get the notice id so we can bind the image to the notice
+			$notice_id = $dbh->lastInsertId();
+
 			// Check if insert was successful
 	    		if($new_notice_statement->rowCount() > 0) {
+
 	    			echo "<div class='success_message'>Your notice was successfully made</div>";
+	    			
+	    			// Insert image into images
+	    			$new_image_stmt = $dbh->prepare("INSERT INTO Image (Img_Ref) Values(:img_ref)");
+	    			$new_image_stmt->execute(array(":img_ref" => "Empty"));
+
+	    			$image_id = $dbh->lastInsertId();
+
+	    			// Set reference between notice id and image id
+	    			$link_notice_image_stmt = $dbh->prepare("INSERT INTO NoticeImage (Img_Id,Notice_Id) Values (:img_id,:notice_id)");
+	    			$link_notice_image_stmt->execute(array(":img_id" => $image_id,":notice_id" => $notice_id));
+
+
+	    			// Upload image (name = Img_Id)
+
+	    			// folder for uploaded images
+		  		$target_dir = "user_images/";
+
+		  		// Seperate's string at .
+				$temp = explode(".",basename($_FILES["notice_image"]["name"]));
+
+				// Constructs new image name
+				$new_file_name = (String)$image_id . "." . end($temp);
+
+				// Set where we want the image saved
+		  		$target_file = $target_dir . $new_file_name;
+
+		  		// Var that checks if we want to let the file be uploaded
+		  		$uploadOk = 1;
+
+		  		// Check if file exists
+		  		if(file_exists($target_file)){
+		  			echo "Sorry that file already exists";
+		  			$uploadOk = 0;
+		  		}
+
+		  		// Check size of the file
+		  		if($_FILES["notice_image"]["size"] > 250000){
+		  			echo "File size is too large";
+		  			$uploadOk = 0;
+		  		}
+
+		  		// Try and upload file
+
+		  		if($uploadOk == 0){
+		  			echo "Sorry file was not uploaded";
+		  		} else {
+		  			if (move_uploaded_file($_FILES["notice_image"]["tmp_name"], $target_file)) {
+					     // echo "The file ". basename( $_FILES["notice_image"]["name"]). " has been uploaded.";
+					} else {
+					     // echo "Sorry, there was an error uploading your file.";
+					}
+		  		}
+
+
 	    		}
 	    		else {
 	    			echo "<div class='error_message'>Your notice was not submitted, please try again</div>";
@@ -74,8 +132,11 @@
 		}
 
 	}
+
 	?>
     	<h1>All Notices</h1>
+    	<table>
+    		<tr><th>Image</th><th>description</th></tr>
 	<?php
 
 		// Outputting all notices
@@ -83,11 +144,22 @@
 		$all_notice_stmt->execute();
 
 		while($row = $all_notice_stmt->fetch()){
+			// Get the image associated to this notice
 
-			echo $row["Notice_Descrip"] . "<br />";
+			$notice_image_stmt = $dbh->prepare("Select * From Image Where Img_Id=(Select Img_Id From NoticeImage Where Notice_Id=:notice_id)");
+			$notice_image_stmt->execute(array(":notice_id" => $row["Notice_Id"]));
+
+			$image_row = $notice_image_stmt->fetch();
+			$image_id  = $image_row["Img_Id"];
+
+			echo "<tr><td><img src='user_images/". (String)$image_id . ".jpg' /></td>"; 
+
+			echo "<td>" . $row["Notice_Descrip"] . "</td></tr>";
+
 		}
 
 	?>
+	</table>
     </div>
     <div class="sideContent bgPrimary">
         <h1>Hello</h1>

@@ -52,20 +52,23 @@
 		else{
 			echo "<div class='error_message'>You can only make notices if you are logged in, please log in</div>";
 		}
-		
+
 		// Display the add notice form either way
 		// As we can check if there logged in when we are trying to submit the data
 	?>
 
     <!-- Main Content Here -->
       <h1>New Notice</h1>
-   	<form name="loginForm" method="post" action="notices.php?action=new_notice" onsubmit="return input_validate_notice()">
+   	<form name="loginForm" method="post" action="notices.php?action=new_notice" onsubmit="return input_validate_notice()" enctype="multipart/form-data">
 
 		<label class="label">Notice Expiry Date</label>
 		<input class="full_width" name="notice_expiry_date" type="text"  placeholder="Expiry Date" id="expiry_date">
 
 		<label class="label">Notice Description</label>
 		<textarea class="full_width no_resize" name="notice_description" id="notice_description" rows="10"></textarea>
+
+		<label class="label">Notice Image</label>
+		<input type="file" name="notice_image" id="notice_image">
 
 		<input type="submit" name="button" value="Submit" >
 	</form>
