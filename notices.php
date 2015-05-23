@@ -253,7 +253,7 @@
 
 			$delete_notice_stmt = $dbh->prepare("Delete FROM Notice WHERE Notice_Id=:notice_id");
 			$delete_notice_stmt->execute(array(":notice_id" => $notice_id));
-			
+
 		}
 	}
 	?>
@@ -265,7 +265,7 @@
 	<?php
 
 		// Outputting all notices
-		$all_notice_stmt = $dbh->prepare("Select * FROM Notice");
+		$all_notice_stmt = $dbh->prepare("Select * FROM Notice WHERE Notice_ExpDate >= CURRENT_TIMESTAMP");
 		$all_notice_stmt->execute();
 
 		while($row = $all_notice_stmt->fetch()){
@@ -284,8 +284,8 @@
 			echo "<td>";
 			if(isset($_SESSION["Member_Id"])){
 				if($row["Notice_MemberId"] == $_SESSION["Member_Id"]){
-					echo "<a href='edit_notice.php?notice_id=" . $row["Notice_Id"] . "'>Edit</a>";
-					echo "<a href='notice.php?action=delete_notice&notice_id=" . $row["Notice_Id"] . "'>Edit</a>";
+					echo "<a href='edit_notice.php?notice_id=" . $row["Notice_Id"] . "'>Edit</a>|";
+					echo "<a href='notices.php?action=delete_notice&notice_id=" . $row["Notice_Id"] . "'>Delete</a>";
 				}
 			}
 			echo "</td></tr>";
