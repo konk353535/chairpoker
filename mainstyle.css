@@ -129,9 +129,9 @@
     float: right;
 }
 .allContent {
-	margin-left: auto;
-	margin-right: auto;
-	width: 980px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 980px;
     display:table;
     
 }
@@ -144,7 +144,12 @@ h1 {
     color: #a94442;
     padding: 15px;
     border-radius: 8px;
-    
+}
+.success_message{
+    background-color: #B4EEB4;
+    color: #1F552A;
+    padding: 15px;
+    border-radius: 8px;
 }
 
 body {

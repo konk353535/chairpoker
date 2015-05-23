@@ -34,16 +34,16 @@ if($_GET['action'] == "new_notice" and isset($_SESSION['Member_Id'])){
 
 		// Check if insert was successful
     		if($new_notice_statement->rowCount() > 0) {
-    			echo "<div class='success'>Your notice was successfully made (Refresh to see it)</div>";
+    			echo "<div class='success_message'>Your notice was successfully made (Refresh to see it)</div>";
     		}
     		else {
-    			echo "<div class='error'>Your notice was not submitted, please try again</div>";
+    			echo "<div class='error_message'>Your notice was not submitted, please try again</div>";
     		}
 
 	}
 	else {
 		// Display error, user not allowed to make notice
-		echo "<div class='error'>You must be logged in to create a notice</div>";
+		echo "<div class='error_message'>You must be logged in to create a notice</div>";
 	}
 
 
