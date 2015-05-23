@@ -38,39 +38,52 @@
     <div class="mainContent">
 
     	<?php
-		// Connect to our database
+		session_start();
+
 		include("db_connect.php");
 
-		// Check that user is logged in (only registered users can make notices)
-		$auth_level = $_SESSION['AuthLevel'];
+		if(isset($_SESSION["Member_Id"])){
 
-		if(isset($_SESSION['Member_Id'])){
-			if($auth_level >= 1){
-				// User is registered
+			// What notice do we want to edit
+			$notice_id = $_GET["notice_id"];
+			
+			// Who is logged in
+			$member_id = $_SESSION["Member_Id"];
+
+			// Get member_id of owner of this notice
+			$notice_stmt = $dbh->prepare("Select * From Notice WHERE Notice_Id");
+			$notice_stmt->execute();
+
+			$row = $notice_stmt->fetch();
+			if($row["Notice_MemberId"] == $member_id){
+
+				// All good this user owns this notice
+				$notice_description = $row["Notice_Descrip"];
+				$notice_expiry_date = $row["Notice_ExpDate"];
+
+			}
+			else {
+
+				// Bad this user doesnt own this notice
+				echo "You don't own this notice";
 			}
 		}
-		else{
-			echo "<div class='error_message'>You can only make notices if you are logged in, please log in</div>";
-		}
-
-		// Display the add notice form either way
-		// As we can check if there logged in when we are trying to submit the data
 	?>
 
     <!-- Main Content Here -->
-      <h1>New Notice</h1>
-   	<form name="loginForm" method="post" action="notices.php?action=new_notice" onsubmit="return input_validate_notice()" enctype="multipart/form-data">
+      <h1>Edit Notice</h1>
+   	<form name="loginForm" method="post" action='notices.php?action=edit_notice&notice_id=<?php echo $_GET["notice_id"]; ?>'  onsubmit="return input_validate_notice()" enctype="multipart/form-data">
 
 		<label class="label">Notice Expiry Date</label>
-		<input class="full_width" name="notice_expiry_date" type="text"  placeholder="Expiry Date" id="expiry_date">
+		<input class="full_width" name="notice_expiry_date" type="text"  placeholder="Expiry Date" id="expiry_date" value=<?php echo $notice_expiry_date; ?>>
 
 		<label class="label">Notice Description</label>
-		<textarea class="full_width no_resize" name="notice_description" id="notice_description" rows="10"></textarea>
+		<textarea class="full_width no_resize" name="notice_description" id="notice_description" rows="10" ><?php echo $notice_description; ?></textarea>
 
 		<label class="label">Notice Image</label>
 		<input type="file" name="notice_image" id="notice_image">
 
-		<input type="submit" name="button" value="Submit" >
+		<input type="submit" name="button" value="Edit" >
 	</form>
 	<div id="errorOutput"></div>
     </div>

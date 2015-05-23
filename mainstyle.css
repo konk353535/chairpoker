@@ -121,8 +121,6 @@
 }
 
 .mainContent {
-    width: 60%;
-    display: inline-block;
     padding: 10px;
 }
 
@@ -155,26 +153,8 @@ h1 {
     padding: 15px;
     border-radius: 8px;
 }
-
-.adminControlTable {
-	border: 3px solid black;
-	border-spacing: 0;
-}
-
-.adminControlTable tr:nth-child(odd) {
-	background: #AAAAAA;
-}
-
-.adminControlTable th {
-	background: #000000;
-	color: #FFFFFF;
-	padding-left: 10px;
-}
-.adminControlTable td {
-	padding-left: 10px;
-	padding-bottom: 10px;
-	padding-top: 10px;
-	text-align: center;
+.text_center {
+    text-align: center;
 }
 body {
     background-color: #f8f8f8;
@@ -187,11 +167,6 @@ body {
     display: inline-block;
 }
 
-.update_form_input {
-	margin-top: 10px;
-	margin-bottom: 10px;
-    display: inline-block;
-}
 .full_width {
     width: 100%;
 }
