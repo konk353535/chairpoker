@@ -136,10 +136,129 @@
 		}
 
 	}
+	else if($_GET['action'] == "edit_notice"){
 
+		// Check that this user owns this notice
+		$notice_id = $_GET["notice_id"];
+
+		// Who is logged in
+		$member_id = $_SESSION["Member_Id"];
+
+		// Get member_id of owner of this notice
+		$notice_stmt = $dbh->prepare("Select * From Notice WHERE Notice_Id=:notice_id");
+		$notice_stmt->execute(array(":notice_id"=>$notice_id));
+
+		$row = $notice_stmt->fetch();
+
+		if($row["Notice_MemberId"] == $member_id){
+
+			// All good this user owns this notice
+			$new_notice_description = $_POST["notice_description"];
+			$new_notice_expiry_date = $_POST["notice_expiry_date"];
+
+			// Update the Description and expiry date
+			$notice_update_stmt = $dbh->prepare("Update Notice Set Notice_Descrip=:new_notice_descrip, Notice_ExpDate=:notice_exp_date 
+				WHERE Notice_Id=:notice_id");
+			$notice_update_stmt->execute(array(
+				":new_notice_descrip" => $new_notice_description, 
+				":notice_exp_date" => $new_notice_expiry_date,
+				":notice_id" => $notice_id
+				));
+
+			echo "<div class='success_message'>Notice Updated</div>";
+
+			// Check if they want the picture changed
+			if($_FILES["notice_image"]["name"] === ""){
+				
+				// echo "Don't want pic changed";
+
+			} else {
+
+				// Insert the new picture and bind it to this notice
+
+				// Seperate's string at .
+				$temp = explode(".",basename($_FILES["notice_image"]["name"]));
+				$file_ext = end($temp);
+
+	    			// Insert image into images
+	    			$new_image_stmt = $dbh->prepare("INSERT INTO Image (Img_Ref) Values(:img_ref)");
+	    			$new_image_stmt->execute(array(":img_ref" => $file_ext));
+
+	    			$image_id = $dbh->lastInsertId();
+
+	    			// Set reference between notice id and image id
+	    			$link_notice_image_stmt = $dbh->prepare("Update NoticeImage SET Img_Id=:img_id WHERE Notice_Id=:notice_id");
+	    			$link_notice_image_stmt->execute(array(":img_id" => $image_id,":notice_id" => $notice_id));
+
+	    			// folder for uploaded images
+		  		$target_dir = "user_images/";
+
+		  		// Seperate's string at .
+				$temp = explode(".",basename($_FILES["notice_image"]["name"]));
+
+				// Constructs new image name
+				$new_file_name = (String)$image_id . "." . end($temp);
+
+				// Set where we want the image saved
+		  		$target_file = $target_dir . $new_file_name;
+
+		  		// Var that checks if we want to let the file be uploaded
+		  		$uploadOk = 1;
+
+		  		// Check if file exists
+		  		if(file_exists($target_file)){
+		  			echo "Sorry that file already exists";
+		  			$uploadOk = 0;
+		  		}
+
+		  		// Check size of the file
+		  		if($_FILES["notice_image"]["size"] > 250000){
+		  			echo "File size is too large";
+		  			$uploadOk = 0;
+		  		}
+
+		  		// Try and upload file
+
+		  		if($uploadOk == 0){
+		  			echo "Sorry file was not uploaded";
+		  		} else {
+		  			if (move_uploaded_file($_FILES["notice_image"]["tmp_name"], $target_file)) {
+					      echo "The file ". basename( $_FILES["notice_image"]["name"]). " has been uploaded.";
+					} else {
+					      echo "Sorry, there was an error uploading your file.";
+					}
+		  		}
+			}
+
+		} else {
+			echo "<div class='error_message'>You can't edit a notice you don't own</div>";
+		}
+
+	}
+	else if($_GET['action'] == "delete_notice"){
+
+		// Check that this user owns this notice
+		$notice_id = $_GET["notice_id"];
+
+		// Who is logged in
+		$member_id = $_SESSION["Member_Id"];
+
+		// Get member_id of owner of this notice
+		$notice_stmt = $dbh->prepare("Select * From Notice WHERE Notice_Id=:notice_id");
+		$notice_stmt->execute(array(":notice_id"=>$notice_id));
+
+		$row = $notice_stmt->fetch();
+
+		if($row["Notice_MemberId"] == $member_id){
+
+			$delete_notice_stmt = $dbh->prepare("Delete FROM Notice WHERE Notice_Id=:notice_id");
+			$delete_notice_stmt->execute(array(":notice_id" => $notice_id));
+			
+		}
+	}
 	?>
 	<a href="add_notice.php">Add Notice</a>
-    	<h1>All Notices</h1>
+    	<h1>Notices</h1>
 
     	<table class="table full_width text_center">
     		<tr><th>Image</th><th>description</th><th>Edit</th></tr>
@@ -166,6 +285,7 @@
 			if(isset($_SESSION["Member_Id"])){
 				if($row["Notice_MemberId"] == $_SESSION["Member_Id"]){
 					echo "<a href='edit_notice.php?notice_id=" . $row["Notice_Id"] . "'>Edit</a>";
+					echo "<a href='notice.php?action=delete_notice&notice_id=" . $row["Notice_Id"] . "'>Edit</a>";
 				}
 			}
 			echo "</td></tr>";
