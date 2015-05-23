@@ -48,10 +48,11 @@
 			if($auth_level >= 1){
 				// User is registered
 			}
-			else{
-				echo "<div class='error_message'>You can only make notices if you are logged in, please log in</div>";
-			}
 		}
+		else{
+			echo "<div class='error_message'>You can only make notices if you are logged in, please log in</div>";
+		}
+		
 		// Display the add notice form either way
 		// As we can check if there logged in when we are trying to submit the data
 	?>
