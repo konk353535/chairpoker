@@ -65,10 +65,14 @@
 	    		if($new_notice_statement->rowCount() > 0) {
 
 	    			echo "<div class='success_message'>Your notice was successfully made</div>";
-	    			
+
+	    			// Seperate's string at .
+				$temp = explode(".",basename($_FILES["notice_image"]["name"]));
+				$file_ext = end($temp);
+
 	    			// Insert image into images
 	    			$new_image_stmt = $dbh->prepare("INSERT INTO Image (Img_Ref) Values(:img_ref)");
-	    			$new_image_stmt->execute(array(":img_ref" => "Empty"));
+	    			$new_image_stmt->execute(array(":img_ref" => $file_ext));
 
 	    			$image_id = $dbh->lastInsertId();
 
@@ -134,9 +138,11 @@
 	}
 
 	?>
+	<a href="add_notice.php">Add Notice</a>
     	<h1>All Notices</h1>
-    	<table>
-    		<tr><th>Image</th><th>description</th></tr>
+
+    	<table class="table full_width text_center">
+    		<tr><th>Image</th><th>description</th><th>Edit</th></tr>
 	<?php
 
 		// Outputting all notices
@@ -152,12 +158,18 @@
 			$image_row = $notice_image_stmt->fetch();
 			$image_id  = $image_row["Img_Id"];
 
-			echo "<tr><td><img src='user_images/". (String)$image_id . ".jpg' /></td>"; 
+			echo "<tr><td><img src='user_images/". (String)$image_id . "." . $image_row["Img_Ref"] . "'/></td>"; 
 
-			echo "<td>" . $row["Notice_Descrip"] . "</td></tr>";
+			echo "<td>" . $row["Notice_Descrip"] . "</td>";
 
+			echo "<td>";
+			if(isset($_SESSION["Member_Id"])){
+				if($row["Notice_MemberId"] == $_SESSION["Member_Id"]){
+					echo "<a href='edit_notice.php?notice_id=" . $row["Notice_Id"] . "'>Edit</a>";
+				}
+			}
+			echo "</td></tr>";
 		}
-
 	?>
 	</table>
     </div>
