@@ -19,7 +19,6 @@
 <div class="allContent">
     <div class="mainContent bgPrimary">
 		<?php 
-			include('authenticateFunctions.php'); 
 			if(!isset($_SESSION['AuthLevel']) || $_SESSION['AuthLevel'] != 3){
 				echo "<div class='error_message'>You need to be logged in with administrator rights to access this resource</div>";
 			}
@@ -27,19 +26,17 @@
 		?>
 			<ul>
 				<li>
-					<a href='memberList.php'>All Members</a>
+					<a href='adminMemberList.php'>All Members</a>
 				</li>
 				<li>
-					<a href='artistList.php'>All Artists</a>
+					<a href='adminArtistList.php'>All Artists</a>
 				</li>
 				<li>
-					<a href='artistCategories.php'>Artist Category Types</a>
+					<a href='adminArtistCategories.php'>Artist Category Types</a>
 				</li>
 				<li>
-					<a href='.php'>All Members</a>
+					<a href='adminNotices.php'>Bulletin board submissions</a>
 				</li>
-				
-				
 			</ul>
 		<?php
 			}
