@@ -51,8 +51,8 @@
 			$member_id = $_SESSION["Member_Id"];
 
 			// Get member_id of owner of this notice
-			$notice_stmt = $dbh->prepare("Select * From Notice WHERE Notice_Id");
-			$notice_stmt->execute();
+			$notice_stmt = $dbh->prepare("Select * From Notice WHERE Notice_Id=:notice_id");
+			$notice_stmt->execute(array(":notice_id" => $notice_id));
 
 			$row = $notice_stmt->fetch();
 			if($row["Notice_MemberId"] == $member_id){

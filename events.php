@@ -140,49 +140,50 @@
 		}
 
 	}
-	/*
-	else if($_GET['action'] == "edit_notice"){
+	else if($_GET['action'] == "edit_event"){
 
 		// Check that this user owns this event
-		$event_id = $_GET["notice_id"];
+		$event_id = $_GET["event_id"];
 
 		// Who is logged in
 		$member_id = $_SESSION["Member_Id"];
 
-		// Get member_id of owner of this notice
-		$notice_stmt = $dbh->prepare("Select * From Notice WHERE Notice_Id=:notice_id");
-		$notice_stmt->execute(array(":notice_id"=>$notice_id));
+		// Get member_id of owner of this event
+		$event_stmt = $dbh->prepare("Select * From Event WHERE Event_Id=:event_id");
+		$event_stmt->execute(array(":event_id"=>$event_id));
 
-		$row = $notice_stmt->fetch();
+		$row = $event_stmt->fetch();
 
-		if($row["Notice_MemberId"] == $member_id){
+		if($row["Event_MemberId"] == $member_id){
 
-			// All good this user owns this notice
-			$new_notice_description = $_POST["notice_description"];
-			$new_notice_expiry_date = $_POST["notice_expiry_date"];
+			// All good this user owns this event
+			$new_event_description = $_POST["event_description"];
+			$new_event_date = $_POST["event_date"];
+			$new_event_title = $_POST["event_title"];
 
 			// Update the Description and expiry date
-			$notice_update_stmt = $dbh->prepare("Update Notice Set Notice_Descrip=:new_notice_descrip, Notice_ExpDate=:notice_exp_date 
-				WHERE Notice_Id=:notice_id");
-			$notice_update_stmt->execute(array(
-				":new_notice_descrip" => $new_notice_description, 
-				":notice_exp_date" => $new_notice_expiry_date,
-				":notice_id" => $notice_id
+			$event_update_stmt = $dbh->prepare("Update Event Set Event_Descrip=:new_event_descrip, Event_Date=:event_date, Event_Title=:event_title
+				WHERE Event_Id=:event_id");
+			$event_update_stmt->execute(array(
+				":new_event_descrip" => $new_event_description, 
+				":event_date" => $new_event_date,
+				":event_title" => $new_event_title,
+				":event_id" => $event_id
 				));
 
-			echo "<div class='success_message'>Notice Updated</div>";
+			echo "<div class='success_message'>Event Updated</div>";
 
 			// Check if they want the picture changed
-			if($_FILES["notice_image"]["name"] === ""){
+			if($_FILES["event_image"]["name"] === ""){
 				
 				// echo "Don't want pic changed";
 
 			} else {
 
-				// Insert the new picture and bind it to this notice
+				// Insert the new picture and bind it to this event
 
 				// Seperate's string at .
-				$temp = explode(".",basename($_FILES["notice_image"]["name"]));
+				$temp = explode(".",basename($_FILES["event_image"]["name"]));
 				$file_ext = end($temp);
 
 	    			// Insert image into images
@@ -191,15 +192,15 @@
 
 	    			$image_id = $dbh->lastInsertId();
 
-	    			// Set reference between notice id and image id
-	    			$link_notice_image_stmt = $dbh->prepare("Update NoticeImage SET Img_Id=:img_id WHERE Notice_Id=:notice_id");
-	    			$link_notice_image_stmt->execute(array(":img_id" => $image_id,":notice_id" => $notice_id));
+	    			// Set reference between event id and image id
+	    			$link_event_image_stmt = $dbh->prepare("Update EventImage SET Img_Id=:img_id WHERE Event_Id=:event_id");
+	    			$link_event_image_stmt->execute(array(":img_id" => $image_id,":event_id" => $event_id));
 
 	    			// folder for uploaded images
 		  		$target_dir = "user_images/";
 
 		  		// Seperate's string at .
-				$temp = explode(".",basename($_FILES["notice_image"]["name"]));
+				$temp = explode(".",basename($_FILES["event_image"]["name"]));
 
 				// Constructs new image name
 				$new_file_name = (String)$image_id . "." . end($temp);
@@ -217,7 +218,7 @@
 		  		}
 
 		  		// Check size of the file
-		  		if($_FILES["notice_image"]["size"] > 250000){
+		  		if($_FILES["event_image"]["size"] > 250000){
 		  			echo "File size is too large";
 		  			$uploadOk = 0;
 		  		}
@@ -227,8 +228,8 @@
 		  		if($uploadOk == 0){
 		  			echo "Sorry file was not uploaded";
 		  		} else {
-		  			if (move_uploaded_file($_FILES["notice_image"]["tmp_name"], $target_file)) {
-					      echo "The file ". basename( $_FILES["notice_image"]["name"]). " has been uploaded.";
+		  			if (move_uploaded_file($_FILES["event_image"]["tmp_name"], $target_file)) {
+					      echo "The file ". basename( $_FILES["event_image"]["name"]). " has been uploaded.";
 					} else {
 					      echo "Sorry, there was an error uploading your file.";
 					}
@@ -236,32 +237,31 @@
 			}
 
 		} else {
-			echo "<div class='error_message'>You can't edit a notice you don't own</div>";
+			echo "<div class='error_message'>Events can only be edited by the admin</div>";
 		}
 
 	}
-	else if($_GET['action'] == "delete_notice"){
+	else if($_GET['action'] == "delete_event"){
 
-		// Check that this user owns this notice
-		$notice_id = $_GET["notice_id"];
+		// Check that this user owns this event
+		$event_id = $_GET["event_id"];
 
 		// Who is logged in
 		$member_id = $_SESSION["Member_Id"];
 
-		// Get member_id of owner of this notice
-		$notice_stmt = $dbh->prepare("Select * From Notice WHERE Notice_Id=:notice_id");
-		$notice_stmt->execute(array(":notice_id"=>$notice_id));
+		// Get member_id of owner of this event
+		$event_stmt = $dbh->prepare("Select * From Event WHERE Event_Id=:event_id");
+		$event_stmt->execute(array(":event_id"=>$event_id));
 
-		$row = $notice_stmt->fetch();
+		$row = $event_stmt->fetch();
 
-		if($row["Notice_MemberId"] == $member_id){
+		if($_SESSION["AuthLevel"] >= 1){
 
-			$delete_notice_stmt = $dbh->prepare("Delete FROM Notice WHERE Notice_Id=:notice_id");
-			$delete_notice_stmt->execute(array(":notice_id" => $notice_id));
+			$delete_event_stmt = $dbh->prepare("Delete FROM Event WHERE Event_Id=:event_id");
+			$delete_event_stmt->execute(array(":event_id" => $event_id));
 
 		}
 	}
-	*/
 	?>
 	<a href="add_event.php">Add Event</a>
     	<h1>Events</h1>
@@ -278,19 +278,21 @@
 		while($row = $all_event_stmt->fetch()){
 
 			// Check if this event is binded to a featured artist
-			$is_event_featured_stmt = $dbh->prepare("Select * FROM FeaturedArtist WHERE FeaturedArtist_Id = (Select Artist_Id FROM ArtistEvent WHERE Event_Id=:event_id)")
-			$is_event_featured_stmt->execute(array(":event_id" => $row["Event_Id"]));
+			// $is_event_featured_stmt = $dbh->prepare("Select * FROM FeaturedArtist WHERE FeaturedArtist_Id = (Select Artist_Id FROM ArtistEvent WHERE Event_Id=:event_id)");
+			// $is_event_featured_stmt->execute(array(":event_id" => $row["Event_Id"]));
 
+			 $is_featured = false;
 
-			$event_row = $is_event_featured_stmt->fetch();
-
-
-			$is_featured = false;
-			if($is_event_featured_stmt->rowCount() > 0) {
+			//if($is_event_featured_stmt->rowCount() > 0) {
 			
 				// This is the featured artist
-				$is_featured = true;
-			}
+				//$is_featured = true;
+			//}
+
+			//$event_row = $is_event_featured_stmt->fetch();
+			
+
+
 
 
 			// Get the image associated to this event
@@ -320,8 +322,8 @@
 			echo "<td>";
 			if(isset($_SESSION["Member_Id"])){
 				//if($_SESSION["Member_Id"] == 1){
-					echo "<a href='edit_event.php?event_id=" . $row["Notice_Id"] . "'>Edit</a>|";
-					echo "<a href='events.php?action=delete_event&event_id=" . $row["Notice_Id"] . "'>Delete</a>";
+					echo "<a href='edit_event.php?event_id=" . $row["Event_Id"] . "'>Edit</a>|";
+					echo "<a href='events.php?action=delete_event&event_id=" . $row["Event_Id"] . "'>Delete</a>";
 				//}
 			}
 			echo "</td></tr>";
