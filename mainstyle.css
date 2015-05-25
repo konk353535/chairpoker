@@ -137,6 +137,26 @@
     display:table;
     
 }
+.notice_image {
+    width: 120px;
+    height: auto;
+    border: 3px solid black;
+}
+.notice_group {
+    display: inline-block;
+}
+.notice_group p {
+    display: inline-block;
+    padding: 10px;
+    vertical-align: top;
+}
+.notice_group .edit_controls {
+    width: 120px;
+    text-align: center;
+}
+.notice_group img {
+    display: inline-block;
+}
 h1 {
     font-family: 'Open Sans', sans-serif;
 }

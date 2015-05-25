@@ -260,8 +260,6 @@
 	<a href="add_notice.php">Add Notice</a>
     	<h1>Notices</h1>
 
-    	<table class="table full_width text_center">
-    		<tr><th>Image</th><th>description</th><th>Edit</th></tr>
 	<?php
 
 		// Outputting all notices
@@ -276,19 +274,20 @@
 
 			$image_row = $notice_image_stmt->fetch();
 			$image_id  = $image_row["Img_Id"];
+			echo "<div class='notice_group'>";
+			echo "<img class='notice_image' src='user_images/". (String)$image_id . "." . $image_row["Img_Ref"] . "'/>"; 
 
-			echo "<tr><td><img src='user_images/". (String)$image_id . "." . $image_row["Img_Ref"] . "'/></td>"; 
+			echo "<p>" . $row["Notice_Descrip"] . "</p>";
 
-			echo "<td>" . $row["Notice_Descrip"] . "</td>";
-
-			echo "<td>";
 			if(isset($_SESSION["Member_Id"])){
 				if($row["Notice_MemberId"] == $_SESSION["Member_Id"] or $_SESSION['AuthLevel'] == 3){
-					echo "<a href='edit_notice.php?notice_id=" . $row["Notice_Id"] . "'>Edit</a>|";
-					echo "<a href='notices.php?action=delete_notice&notice_id=" . $row["Notice_Id"] . "'>Delete</a>";
+					echo "<br /><div class='edit_controls'><a href='edit_notice.php?notice_id=" . $row["Notice_Id"] . "'>Edit</a>|";
+					echo "<a href='notices.php?action=delete_notice&notice_id=" . $row["Notice_Id"] . "'>Delete</a></div>";
 				}
 			}
-			echo "</td></tr>";
+
+			echo "</div>";
+
 		}
 	?>
 	</table>
