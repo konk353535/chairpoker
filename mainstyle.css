@@ -28,7 +28,6 @@
 }
 .footer {
     padding: 10px;
-    color: #FFFFFF;
     margin-top: 20px;
 }
 /*
@@ -149,6 +148,7 @@
     display: inline-block;
     padding: 10px;
     vertical-align: top;
+    width: 800px;
 }
 .notice_group .edit_controls {
     width: 120px;
@@ -156,6 +156,7 @@
 }
 .notice_group img {
     display: inline-block;
+    margin-top: 10px;
 }
 h1 {
     font-family: 'Open Sans', sans-serif;
