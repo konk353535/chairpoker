@@ -79,7 +79,7 @@
 		<input class="full_width" name="event_date" type="text"  placeholder="Event Date" id="event_date" value=<?php echo $event_date; ?>>
 
 		<label class="label">Event Title</label>
-		<input class="full_width" name="event_title" type="text"  placeholder="Event title" id="event_date" value=<?php echo $event_title; ?>>
+		<input class="full_width" name="event_title" type="text"  placeholder="Event title" id="event_title" <?php echo "value='". $event_title . "'"; ?>>
 
 		<label class="label">Event Description</label>
 		<textarea class="full_width no_resize" name="event_description" id="event_description" rows="10" ><?php echo $event_description; ?></textarea>

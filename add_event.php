@@ -68,11 +68,15 @@
 		<label class="label">Event Title</label>
 		<input class="full_width" name="event_title" type="text"  placeholder="Event Title" id="event_title">
 
+		<label class="label">Artist ID</label>
+		<input class="full_width" name="artist_id" type="text"  placeholder="Artist Id" id="artist_id">
+
 		<label class="label">Event Description</label>
 		<textarea class="full_width no_resize" name="event_description" id="event_description" rows="10"></textarea>
 
 		<label class="label">Event Image</label>
 		<input type="file" name="event_image" id="event_image">
+
 
 		<input type="submit" name="button" value="Submit" >
 	</form>

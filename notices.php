@@ -150,7 +150,7 @@
 
 		$row = $notice_stmt->fetch();
 
-		if($row["Notice_MemberId"] == $member_id){
+		if($row["Notice_MemberId"] == $member_id or $_SESSION['AuthLevel'] == 3){
 
 			// All good this user owns this notice
 			$new_notice_description = $_POST["notice_description"];
@@ -249,7 +249,7 @@
 
 		$row = $notice_stmt->fetch();
 
-		if($row["Notice_MemberId"] == $member_id){
+		if($row["Notice_MemberId"] == $member_id or $_SESSION['AuthLevel'] == 3){
 
 			$delete_notice_stmt = $dbh->prepare("Delete FROM Notice WHERE Notice_Id=:notice_id");
 			$delete_notice_stmt->execute(array(":notice_id" => $notice_id));
@@ -283,7 +283,7 @@
 
 			echo "<td>";
 			if(isset($_SESSION["Member_Id"])){
-				if($row["Notice_MemberId"] == $_SESSION["Member_Id"]){
+				if($row["Notice_MemberId"] == $_SESSION["Member_Id"] or $_SESSION['AuthLevel'] == 3){
 					echo "<a href='edit_notice.php?notice_id=" . $row["Notice_Id"] . "'>Edit</a>|";
 					echo "<a href='notices.php?action=delete_notice&notice_id=" . $row["Notice_Id"] . "'>Delete</a>";
 				}

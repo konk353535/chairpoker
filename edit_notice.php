@@ -55,7 +55,7 @@
 			$notice_stmt->execute(array(":notice_id" => $notice_id));
 
 			$row = $notice_stmt->fetch();
-			if($row["Notice_MemberId"] == $member_id){
+			if($row["Notice_MemberId"] == $member_id or $_SESSION['AuthLevel'] == 3){
 
 				// All good this user owns this notice
 				$notice_description = $row["Notice_Descrip"];

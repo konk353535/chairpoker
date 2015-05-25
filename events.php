@@ -48,6 +48,8 @@
 			$event_description = $_POST['event_description'];
 			$event_title = $_POST['event_title'];
 			$event_date = $_POST['event_date'];
+			$artist_id = $_POST['artist_id'];
+
 
 			// Prepare the query for inserting the event
 		      $new_event_statement = $dbh->prepare("INSERT INTO Event (Event_Date, Event_Descrip, Event_Title) 
@@ -81,9 +83,11 @@
 	    			$link_event_image_stmt = $dbh->prepare("INSERT INTO EventImage (Img_Id,Event_Id) Values (:img_id,:event_id)");
 	    			$link_event_image_stmt->execute(array(":img_id" => $image_id,":event_id" => $event_id));
 
-	    			$link_event_artist_stmt = $dbh->prepare("INSERT INTO ArtistEvent (Artist_Id, Event_Id) Values(:artist_id,:event_id)");
-	    			$link_event_artist_stmt ->execute(array(":artist_id" => $artist_id, ":event_id" => $event_id));
-
+	    			if($artist_id !== ""){
+		    			echo "Artist ID set" . $artist_id;
+		    			$link_event_artist_stmt = $dbh->prepare("INSERT INTO ArtistEvent (Artist_Id, Event_Id) Values(:artist_id,:event_id)");
+		    			$link_event_artist_stmt ->execute(array(":artist_id" => $artist_id, ":event_id" => $event_id));
+	    			}
 
 	    			// Upload image (name = Img_Id)
 
@@ -120,9 +124,9 @@
 		  			echo "Sorry file was not uploaded";
 		  		} else {
 		  			if (move_uploaded_file($_FILES["event_image"]["tmp_name"], $target_file)) {
-					     // echo "The file ". basename( $_FILES["event_image"]["name"]). " has been uploaded.";
+					      echo "The file ". basename( $_FILES["event_image"]["name"]). " has been uploaded.";
 					} else {
-					     // echo "Sorry, there was an error uploading your file.";
+					      echo "Sorry, there was an error uploading your file.";
 					}
 		  		}
 
@@ -154,7 +158,8 @@
 
 		$row = $event_stmt->fetch();
 
-		if($row["Event_MemberId"] == $member_id){
+		// Make sure its the admin trying to edit the event
+		if($_SESSION['AuthLevel'] == 1){
 
 			// All good this user owns this event
 			$new_event_description = $_POST["event_description"];
@@ -278,18 +283,18 @@
 		while($row = $all_event_stmt->fetch()){
 
 			// Check if this event is binded to a featured artist
-			// $is_event_featured_stmt = $dbh->prepare("Select * FROM FeaturedArtist WHERE FeaturedArtist_Id = (Select Artist_Id FROM ArtistEvent WHERE Event_Id=:event_id)");
-			// $is_event_featured_stmt->execute(array(":event_id" => $row["Event_Id"]));
+			$is_event_featured_stmt = $dbh->prepare("Select * FROM FeaturedArtist WHERE FeaturedArtist_Id = (Select Artist_Id FROM ArtistEvent WHERE Event_Id=:event_id)");
+			$is_event_featured_stmt->execute(array(":event_id" => $row["Event_Id"]));
 
 			 $is_featured = false;
 
-			//if($is_event_featured_stmt->rowCount() > 0) {
+			if($is_event_featured_stmt->rowCount() > 0) {
 			
 				// This is the featured artist
 				//$is_featured = true;
-			//}
+			}
 
-			//$event_row = $is_event_featured_stmt->fetch();
+			$event_row = $is_event_featured_stmt->fetch();
 			
 
 
