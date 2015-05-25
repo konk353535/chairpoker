@@ -20,12 +20,12 @@
 		{
 			$_SESSION['errMsg'] = "Invalid Email Address or Password";
 			if(isset($_GET['redirectFailure'])){
-			//	header("Location: " . $_GET['redirectFailure']);
+				header("Location: " . $_GET['redirectFailure']);
 			}
 			else {
-			//	header("Location: ../index.html");
+				header("Location: ../index.html");
 			}
-			//exit();
+			exit();
 		}
 		
 		$member_details = $dbh->query("SELECT Member_Id, Member_Fname, Member_Sname, Member_AuthLevelId FROM Member 
