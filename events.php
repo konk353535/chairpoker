@@ -41,7 +41,7 @@
 		$auth_level = $_SESSION['AuthLevel'];
 
 		// Does user have authority to create event
-		if(isset($_SESSION['Member_Id']) and $auth_level >= 1){
+		if(isset($_SESSION['Member_Id']) and $auth_level == 3){
 
 			// Vars for event
 			$member_id = $_SESSION['Member_Id'];
@@ -159,7 +159,7 @@
 		$row = $event_stmt->fetch();
 
 		// Make sure its the admin trying to edit the event
-		if($_SESSION['AuthLevel'] == 1){
+		if($_SESSION['AuthLevel'] == 3){
 
 			// All good this user owns this event
 			$new_event_description = $_POST["event_description"];
@@ -260,7 +260,7 @@
 
 		$row = $event_stmt->fetch();
 
-		if($_SESSION["AuthLevel"] >= 1){
+		if($_SESSION["AuthLevel"] == 3){
 
 			$delete_event_stmt = $dbh->prepare("Delete FROM Event WHERE Event_Id=:event_id");
 			$delete_event_stmt->execute(array(":event_id" => $event_id));
