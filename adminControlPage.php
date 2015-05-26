@@ -26,16 +26,16 @@
 		?>
 			<ul>
 				<li>
-					<a href='adminMemberList.php'>All Members</a>
+					<a class='styledLink' href='adminMemberList.php'>All Members</a>
 				</li>
 				<li>
-					<a href='adminArtistList.php'>All Artists</a>
+					<a class='styledLink' href='adminArtistList.php'>All Artists</a>
 				</li>
 				<li>
-					<a href='adminArtistCategories.php'>Artist Category Types</a>
+					<a class='styledLink' href='adminArtistCategories.php'>Artist Category Types</a>
 				</li>
 				<li>
-					<a href='adminNotices.php'>Bulletin board submissions</a>
+					<a class='styledLink' href='adminNotices.php'>Bulletin board submissions</a>
 				</li>
 			</ul>
 		<?php

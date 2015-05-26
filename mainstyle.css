@@ -173,7 +173,7 @@
     display: inline-block;
 }
 .event_group .event_title {
-    color: #BD1A1D;
+    color: #4183C4;
     margin-top: 10px;
     margin-bottom: 10px;
 }
@@ -293,6 +293,17 @@ hr {
 	margins:0;
 	
 }
+
+.styledLink {
+	color:#4183C4;
+	text-decoration:none;
+		
+}
+
+.styledLink:hover {
+	text-decoration: underline;
+}
+
 a {
 	color:#BD1A1D;
 	text-decoration:none;

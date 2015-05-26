@@ -44,7 +44,7 @@
 						<td name='row_Email'><?php echo $row['Artist_Email'] ?></td>
 						<td name='row_PhoneDay'><?php echo $row['Artist_PhoneDay'] ?></td>
 						<td name='row_Mobile'><?php echo $row['Artist_Mobile'] ?></td>
-						<td class='adminControlButtonCells'><a href='adminArtistEdit.php?Artist_Id=<?php echo $row['Artist_Id']?>'>Edit</a></td>
+						<td ><a class='styledLink' href='adminArtistEdit.php?Artist_Id=<?php echo $row['Artist_Id']?>'>Edit</a></td>
 					</tr>
 		<?php
 				}
