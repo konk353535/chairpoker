@@ -115,13 +115,7 @@
 		$notice_stmt = $dbh->prepare("Select * From Notice WHERE Notice_Id=:notice_id");
 		$notice_stmt->execute(array(":notice_id"=>$notice_id));
 		$row = $notice_stmt->fetch();
-<<<<<<< HEAD
 		if($row["Notice_MemberId"] == $member_id or $_SESSION['AuthLevel'] == 3){
-=======
-
-		if($row["Notice_MemberId"] == $member_id or $_SESSION['AuthLevel'] == 3){
-
->>>>>>> e8f8144cda3b85c5323705049c9ebcaa74bb5873
 			// All good this user owns this notice
 			$new_notice_description = $_POST["notice_description"];
 			$new_notice_expiry_date = $_POST["notice_expiry_date"];
@@ -194,13 +188,7 @@
 		$notice_stmt = $dbh->prepare("Select * From Notice WHERE Notice_Id=:notice_id");
 		$notice_stmt->execute(array(":notice_id"=>$notice_id));
 		$row = $notice_stmt->fetch();
-<<<<<<< HEAD
 		if($row["Notice_MemberId"] == $member_id or $_SESSION['AuthLevel'] == 3){
-=======
-
-		if($row["Notice_MemberId"] == $member_id or $_SESSION['AuthLevel'] == 3){
-
->>>>>>> e8f8144cda3b85c5323705049c9ebcaa74bb5873
 			$delete_notice_stmt = $dbh->prepare("Delete FROM Notice WHERE Notice_Id=:notice_id");
 			$delete_notice_stmt->execute(array(":notice_id" => $notice_id));
 		}
@@ -221,26 +209,14 @@
 			$image_id  = $image_row["Img_Id"];
 			echo "<div class='notice_group'>";
 			echo "<img class='notice_image' src='user_images/". (String)$image_id . "." . $image_row["Img_Ref"] . "'/>"; 
-<<<<<<< HEAD
 			echo "<p>" . $row["Notice_Descrip"] . "</p>";
-=======
-
-			echo "<p>" . $row["Notice_Descrip"] . "</p>";
-
->>>>>>> e8f8144cda3b85c5323705049c9ebcaa74bb5873
 			if(isset($_SESSION["Member_Id"])){
 				if($row["Notice_MemberId"] == $_SESSION["Member_Id"] or $_SESSION['AuthLevel'] == 3){
 					echo "<br /><div class='edit_controls'><a href='edit_notice.php?notice_id=" . $row["Notice_Id"] . "'>Edit</a>|";
 					echo "<a href='notices.php?action=delete_notice&notice_id=" . $row["Notice_Id"] . "'>Delete</a></div>";
 				}
 			}
-<<<<<<< HEAD
 			echo "</div>";
-=======
-
-			echo "</div>";
-
->>>>>>> e8f8144cda3b85c5323705049c9ebcaa74bb5873
 		}
 	?>
 	</table>
@@ -255,4 +231,3 @@
 
 </body>
 </html>
-
