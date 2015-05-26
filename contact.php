@@ -57,13 +57,16 @@
   <p>The Council's Partnerships and Sponsorships scheme provides vital core funding which enables us to maintain the administrative base for all our other activities, and also provides the premises which house our office space. 
   The Council also assists with the performance venues for our concerts and workshops.</p>
 <hr>
-<h3> Queensland Government</h3>
+<h3> Queensland Government</h3><img src="images/TGCBF.jpg" width="127" height="91">
 <p> The Gambling Community Benefit Fund has assisted us to obtain office equipment and sound and lighting equipment for our product </p>
 <hr>
 <p class="contact_undertagline"> Like us on Facebook </p>
 <p class="contactfacebook"> <a href="https://www.facebook.com/pages/Townsville-Community-Music-Centre/159636880763534">
-  <img src="images/facebook.png" alt="facebook icon" ></p></a>
+  <img src="images/facebook.gif" alt="facebook icon" ></p></a>
+<<<<<<< Updated upstream
     
+=======
+>>>>>>> Stashed changes
     
                         
     
@@ -85,7 +88,7 @@
     
                         
     
-    </div>
+</div>
 
 <!-- End of all Content -->
 
@@ -94,4 +97,10 @@
 <!-- End Footer Template -->
 
 </body>
+<<<<<<< Updated upstream
 </html>
+=======
+</html>
+>>>>>>> Stashed changes
+
+
