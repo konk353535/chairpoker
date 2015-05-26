@@ -142,6 +142,7 @@
     width: 120px;
     height: auto;
     border: 3px solid black;
+    display: inline-block;
 }
 .notice_group {
     display: inline-block;
