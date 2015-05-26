@@ -1,3 +1,11 @@
+<<<<<<< Updated upstream
+=======
+
+
+
+
+
+>>>>>>> Stashed changes
 <!doctype html>
 <html>
 <head>
@@ -23,7 +31,7 @@
 <div class="allContent bgPrimary">
     
     
-	<h1 id= "contact_tagline">Contact Us!</h1>
+	<h1 class="contact_tagline"> Contact Us!</h1>
     <h2 class= "contact_undertagline"> Have questions? Here's how to reach us!
     <br> Office Hours : 9:30-2:30 Mon-Wed</h2>
     
@@ -38,22 +46,42 @@
     <br>
     Mobile Phone(For non-office hours):0402 255 182
     <br>
-    E-mail:<a href="admin@townsvillemusic.org.au" target="_blank"> admin@townsvillemusic.org.au</a>
-    </p>
-    <hr>
-    <a href="https://www.facebook.com/pages/Townsville-Community-Music-Centre/159636880763534" alt="facebook icon" target="_blank">
-    	<img src="images/FacebookIcon.jpg" align="center"></a>
-    <h2> Thank you to our wonderful sponsors who give us so much support!</h2>
+    E-mail:<a href="admin@townsvillemusic.org.au" target="_blank"> admin@townsvillemusic.org.au</a></p>
+  <hr>
+    	
+  <h2 class="contact_undertagline"> Thank you to our wonderful sponsors who give us so much support!</h2>
     <p>Our music concerts are well-publicised and well-attended and sponsors enjoy brand exposure throughout the Arts community. We welcome sponsorship or assistance in any form.</p>
     <hr>
-    <h3> Townsville City Council</h3>
-    <p>The Council's Partnerships and Sponsorships scheme provides vital core funding which enables us to maintain the administrative base for all our other activities, and also provides the premises which house our office space. 
-The Council also assists with the performance venues for our concerts and workshops.</p>
+  <h3> Townsville City Council</h3>
+  <img src="images/TCCcolour150193.gif" alt="towsnsville city" width="71" height="91">
+  <p>The Council's Partnerships and Sponsorships scheme provides vital core funding which enables us to maintain the administrative base for all our other activities, and also provides the premises which house our office space. 
+  The Council also assists with the performance venues for our concerts and workshops.</p>
 <hr>
 <h3> Queensland Government</h3>
-<p>he Gambling Community Benefit Fund has assisted us to obtain office equipment and sound and lighting equipment for our product </p>
+<p> The Gambling Community Benefit Fund has assisted us to obtain office equipment and sound and lighting equipment for our product </p>
 <hr>
+<p class="contact_undertagline"> Like us on Facebook </p>
+<p class="contactfacebook"> <a href="https://www.facebook.com/pages/Townsville-Community-Music-Centre/159636880763534">
+  <img src="images/facebook.png" alt="facebook icon" ></p></a>
     
+    
+                        
+    
+</div>
+
+<!-- End of all Content -->
+
+<!-- Footer Template -->
+<?php include('template/footer.php'); ?>
+<!-- End Footer Template -->
+
+</body>
+<<<<<<< Updated upstream
+</html>
+=======
+</html>
+>>>>>>> Stashed changes
+
     
                         
     
