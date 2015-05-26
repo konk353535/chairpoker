@@ -219,7 +219,6 @@
 			echo "</div>";
 		}
 	?>
-	</table>
 </div>
 </div>
 <!-- End of all Content -->
