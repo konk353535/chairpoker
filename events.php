@@ -84,7 +84,6 @@
 	    			$link_event_image_stmt->execute(array(":img_id" => $image_id,":event_id" => $event_id));
 
 	    			if($artist_id !== ""){
-		    			echo "Artist ID set" . $artist_id;
 		    			$link_event_artist_stmt = $dbh->prepare("INSERT INTO ArtistEvent (Artist_Id, Event_Id) Values(:artist_id,:event_id)");
 		    			$link_event_artist_stmt ->execute(array(":artist_id" => $artist_id, ":event_id" => $event_id));
 	    			}
@@ -124,7 +123,7 @@
 		  			echo "Sorry file was not uploaded";
 		  		} else {
 		  			if (move_uploaded_file($_FILES["event_image"]["tmp_name"], $target_file)) {
-					      echo "The file ". basename( $_FILES["event_image"]["name"]). " has been uploaded.";
+					      //echo "The file ". basename( $_FILES["event_image"]["name"]). " has been uploaded.";
 					} else {
 					      echo "Sorry, there was an error uploading your file.";
 					}
@@ -271,9 +270,6 @@
 	<a href="add_event.php">Add Event</a>
     	<h1>Events</h1>
 
-    	<table class="table full_width text_center">
-    		<tr><th>Image</th><th>Title</th><th>description</th><th>Edit</th></tr>
-	
 	<?php
 
 		// Outputting all events
@@ -306,32 +302,33 @@
 
 			$image_row = $event_image_stmt->fetch();
 			$image_id  = $image_row["Img_Id"];
-
-			echo "<tr><td><img src='user_images/". (String)$image_id . "." . $image_row["Img_Ref"] . "'/></td>"; 
+			echo "<div class='event_group'>";
+			echo "<img class='event_image' src='user_images/". (String)$image_id . "." . $image_row["Img_Ref"] . "'/>"; 
 
 
 			if($is_featured){
 				
 				// Link to featured artist using FeaturedArtist_Id
-				echo "<td><a href='artist.php?artist_id=" . $event_row["FeaturedArtist_Id"] . "'>" . $row["Event_Title"] . "</a></td>";
+				echo "<a href='artist.php?artist_id=" . $event_row["FeaturedArtist_Id"] . "'><h1 class='event_title'>" . $row["Event_Title"] . "</div></a>";
 			}
 			else {
-				echo "<td>" . $row["Event_Title"] . "</td>";
+				echo "<h1 class='event_title'>" . $row["Event_Title"] . "</h1>";
 			}
 
-			echo "<td>" . $row["Event_Descrip"] . "</td>";
+			echo "<div class='event_description'>" . $row["Event_Descrip"] . "</div>";
 
 			// Some way to link to the featured artist
 
-
-			echo "<td>";
 			if(isset($_SESSION["Member_Id"])){
-				//if($_SESSION["Member_Id"] == 1){
+				//if($_SESSION["Member_Id"] == 3){
+					echo "<div class='event_controls'>";
 					echo "<a href='edit_event.php?event_id=" . $row["Event_Id"] . "'>Edit</a>|";
-					echo "<a href='events.php?action=delete_event&event_id=" . $row["Event_Id"] . "'>Delete</a>";
+					echo "<a href='events.php?action=delete_event&event_id=" . $row["Event_Id"] . "'>Delete</a></div>";
 				//}
 			}
-			echo "</td></tr>";
+
+			echo "</div>";
+
 		}
 	?>
 	</table>
