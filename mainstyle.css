@@ -230,3 +230,54 @@ body {
 .picFloatL {
 	float: left;
 }
+
+#contact_tagline {
+	font-size: 84px;
+  word-spacing: 1px;
+  line-height: 90px;
+  font-family: "neuzeitgrobold",sans-serif;
+  text-transform: none;
+  letter-spacing: -3px;
+  color: #181818;
+  text-align:center;
+  margin: .95em 0 0;
+		
+}
+.contact_undertagline {
+	text-align:center;
+	font-size:20px;
+	color:#BD1A1D;
+	float: none;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+hr {
+	display: block;
+  	height: 10px;
+  	border: 0;
+  	border-top: 1px solid #BD1A1D;
+  	margin: 1em 0;
+ 	padding: 0;
+}
+#contact_links {
+	color:#BD1A1D;
+	padding:0;
+	margins:0;
+	
+}
+a {
+	color:#BD1A1D;
+	text-decoration:none;
+}
+.contact a: visited{ 
+	color:#000000;
+	font-size:16px;
+}
+.contact a: hover { 
+	color: #BD1A1D;
+	font-size: 16px;
+}
+.contact a:focus {
+	text-outline:#BD1A1D;
+}
