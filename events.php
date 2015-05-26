@@ -302,18 +302,18 @@
 
 			$image_row = $event_image_stmt->fetch();
 			$image_id  = $image_row["Img_Id"];
-			echo "<div class='event_group'>";
-			echo "<img class='event_image' src='user_images/". (String)$image_id . "." . $image_row["Img_Ref"] . "'/>"; 
 
+			echo "<div class='event_group'>";
 
 			if($is_featured){
-				
 				// Link to featured artist using FeaturedArtist_Id
 				echo "<a href='artist.php?artist_id=" . $event_row["FeaturedArtist_Id"] . "'><h1 class='event_title'>" . $row["Event_Title"] . "</div></a>";
 			}
 			else {
 				echo "<h1 class='event_title'>" . $row["Event_Title"] . "</h1>";
 			}
+
+			echo "<img class='event_image' src='user_images/". (String)$image_id . "." . $image_row["Img_Ref"] . "'/>"; 
 
 			echo "<div class='event_description'>" . $row["Event_Descrip"] . "</div>";
 

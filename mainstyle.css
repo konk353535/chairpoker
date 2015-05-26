@@ -172,13 +172,18 @@
 .event_group {
     display: inline-block;
 }
+.event_group .event_title {
+    color: #BD1A1D;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
 .event_group .event_description {
     display: inline-block;
     padding: 10px;
     vertical-align: top;
     width: 800px;
 }
-.notice_group .event_controls {
+.event_group .event_controls {
     width: 120px;
     text-align: center;
 }
