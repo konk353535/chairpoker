@@ -29,6 +29,7 @@
     <img src="images/frankfurt.png">
     
     
+<<<<<<< HEAD
     <h3> A Taste of Bavaria!</h3>
     <p>Traditional Bavarian Music from the laendeer Musikanten and Bavarian Composers, performed in true Oktoberfest style.</p>
     <hr>
@@ -36,6 +37,15 @@
     <h3>AVIVA and Friends Go Abroad!</h3>
     <img src="images/AvivanF500.jpg" alt="AVIVA group pic">
     <p>Grab your passport and travel with us to the Celtic Highlands and then step into the heart of America!Join us for a toe tappin', soul searchin' journey as AVIVA makes it's way around the world on the first of our two globe trotting adventures!</p>
+=======
+    <p>
+    <p style="font-size: 24px; color: #4183c4;"> A Taste of Bavaria!</h3>
+    <p style="text-align: left">Traditional Bavarian Music from the laendeer Musikanten and Bavarian Composers, performed in true Oktoberfest style.</p>
+     <hr>
+    <h2><img src="images/AvivanF500.jpg" alt="AVIVA group pic" class="homepicFloatleft">Featured Artist</h2>
+    <h3>AVIVA and Friends Go Abroad!</h3>
+    <p style="text-align: right;"color: #4183c4>Grab your passport and travel with us to the Celtic Highlands and then step into the heart of America!Join us for a toe tappin', soul searchin' journey as AVIVA makes it's way around the world on the first of our two globe trotting adventures!</p>
+>>>>>>> origin/master
     <p> Featuring:Caroline Lloyd-Doolan (Violin),Susan Fraser (Violin), Rebecca Brown (Viola), Carol Radovanovic (Cello), and Paul Neilson (Percussion)</p>
     <hr>
 
