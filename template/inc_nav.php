@@ -9,9 +9,9 @@
             <!-- Comments from one li to the other is a workaround for an issue i was having with small spaces between my navigation bars -->
             <ul>
 				<li><a <?php if($pageName === 'index.php'){ echo "class='navbarSelected' "; } ?> href="index.php">Home</a></li><!--
-            --><li><a <?php if($pageName === ''){ echo "class='navbarSelected' "; } ?> href="events.php">Events</a></li><!--
+            --><li><a <?php if($pageName === 'events.php'){ echo "class='navbarSelected' "; } ?> href="events.php">Events</a></li><!--
             --><li><a <?php if($pageName === 'notices.php'){ echo "class='navbarSelected' "; } ?> href="notices.php">Notices</a></li><!--
-            --><li><a <?php if($pageName === ''){ echo "class='navbarSelected' "; } ?> href="">Artists</a></li><!--
+            --><li><a <?php if($pageName === 'artists.php'){ echo "class='navbarSelected' "; } ?> href="artists.php">Artists</a></li><!--
             	<?php
 					if(!isset($_SESSION['AuthLevel'])){
 				?>
@@ -23,7 +23,7 @@
 				<?php
 					}
 				?>	
-            --><li><a <?php if($pageName === ''){ echo "class='navbarSelected' "; }?> href="contact.php">Contact</a></li>
+            --><li><a <?php if($pageName === 'contact.php'){ echo "class='navbarSelected' "; }?> href="contact.php">Contact</a></li>
             </ul>
         </div>    
     </div>
