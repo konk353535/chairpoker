@@ -25,9 +25,9 @@
 		?>
 		<div class="loginForm">
             <form id="form1" name="form1" method="post" action="loginAuth.php?redirect=<?php echo $uri; ?>&redirectFailure=<?php echo $uri; ?>">
-                <input name="Email" type="text" id="textfield" placeholder="Email" class="input"><br />
-                <input name="password" type="password" id="password" placeholder="********" class="input"><br />
-                <input type="submit" name="loginForm" id="button" value="Log In" class="input"><br />
+                <input name="Email" type="text" id="textfield" placeholder="Email" class="input">
+                <input name="password" type="password" id="password" placeholder="********" class="input">
+                <input type="submit" name="loginForm" id="button" value="Log In" class="input">
                 <a href="signUp.html">Not a Member? </a>
             </form>
         </div>
