@@ -42,19 +42,12 @@
 		include("db_connect.php");
 
 		// Check that user is logged in (only registered users can make notices)
-		$auth_level = $_SESSION['AuthLevel'];
-
-		if(isset($_SESSION['Member_Id'])){
-			if($auth_level >= 1){
-				// User is registered
-			}
-		}
-		else{
+		if(!isset($_SESSION['Member_Id'])){
 			echo "<div class='error_message'>You can only make notices if you are logged in, please log in</div>";
 		}
 
 		// Display the add notice form either way
-		// As we can check if there logged in when we are trying to submit the data
+		// As we can check if they're logged in when we are trying to submit the data
 	?>
 
     <!-- Main Content Here -->
@@ -85,13 +78,7 @@
 <!-- End of all Content -->
 
 <!-- Footer Template -->
-
-<div class="wrapper bgPrimary">
-    <div class="footer">
-        Footer Content 
-    </div>
-</div>
-
+<?php include("template/footer.php"); ?>
 <!-- End Footer Template -->
 
 <script>
