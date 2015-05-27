@@ -41,10 +41,9 @@
 		// Connect to our database
 		include("db_connect.php");
 
-		// Check that user is logged in (only registered users can make events)
-		$auth_level = $_SESSION['AuthLevel'];
-
 		if(isset($_SESSION['Member_Id'])){
+			// Check that user is logged in (only registered users can make events)
+			$auth_level = $_SESSION['AuthLevel'];
 			if($auth_level < 3){
 				// User is registered
 				echo "<div class='error_message'>Only the admin can make events</div>";

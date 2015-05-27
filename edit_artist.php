@@ -1,10 +1,22 @@
+
+
+
+
+
 <!doctype html>
 <html>
 <head>
-<meta charset="utf-8">
-<title>Townsville Community Music Centre</title>
-<link href="mainstyle.css" rel="stylesheet" type="text/css">
-<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+	<meta charset="utf-8">
+	<title>Townsville Community Music Centre</title>
+	<link href="mainstyle.css" rel="stylesheet" type="text/css">
+
+	<!-- Google Fonts Open Sans -->
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+
+	<!-- Date Picker -->
+	<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+	<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+	<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 	<script type="text/javascript">
 		// use this to keep track of how many selects are in the form and what ids to assign them
 		var numberSelects = 1;
@@ -22,43 +34,6 @@
 			newSelect.className = "block";
 			document.getElementById("categorySelectsContainer").appendChild(newSelect);
 		}
-		function input_validate_update_artist(){
-			var messages = "";
-			if(document.getElementById("Artist_Fnames").value.trim() === ""){
-				messages += "Please enter a First name.<br/>";
-			}
-			if(document.getElementById("Artist_Sname").value.trim() === ""){
-				messages += "Please enter a Surnname.<br/>";
-			}
-			if(document.getElementById("Artist_Email").value.trim() === ""){
-				messages += "Please enter an Email address.<br/>";
-			}
-			if(document.getElementById("Artist_PhoneDay").value.trim() === ""){
-				messages += "Please enter a Daytime phone contact.<br/>";
-			}
-			if(document.getElementById("Artist_Mobile").value.trim() === ""){
-				messages += "Please enter a Mobile Phone Number.<br/>";
-			}
-			var categories = {};
-			var hasMatches = false;
-			for(var i = 1; i <= numberSelects; ++i){
-				categories[i] = document.getElementById("ArtistCategory" + i).value;
-				for(var j = 1; j < Object.keys(categories).length; ++j){
-					if(categories[i] === categories[j]){
-						hasMatches = true;
-					}
-				}
-			}
-			if(hasMatches){
-				messages += "Please do not submit duplicate categories.<br/>";
-			}
-			if(messages !== ""){
-				document.getElementById("errorOutput").hidden = false;
-				document.getElementById("errorOutput").innerHTML = messages.trim();
-				return false;
-			}
-			return true;
-		}
 	</script>
 </head>
 
@@ -72,19 +47,19 @@
 <?php include('template/inc_nav.php'); ?>
 
 <!-- All Content -->
-<div class="allContent">
-    <div class="mainContent bgPrimary">
+<div class="allContent bgPrimary">
+    <div class="mainContent">
 		<?php
-			if(!isset($_SESSION['AuthLevel']) || $_SESSION['AuthLevel'] != 3){
+			if(!isset($_SESSION['AuthLevel']) || $_SESSION['AuthLevel'] == 1){
 				echo "<div class='error_message'>You need to be logged in with administrator rights to access this resource</div>";
 			}
-			else if(isset($_GET['Artist_Id'])){
+			else if(isset($_GET['artist_id'])){
 				include('db_connect.php');
 				$artistStatement = $dbh->prepare('SELECT * FROM Artist WHERE Artist_Id = ?');
-				$artistStatement->execute(array($_GET['Artist_Id']));
+				$artistStatement->execute(array($_GET['artist_id']));
 				$artist = $artistStatement->fetch();
 		?>
-			<form id='editArtistForm' method='post' action='adminEditArtistProcess.php' onsubmit="return input_validate_update_artist()">
+			<form id='editArtistForm' method='post' action='artists.php?action=edit_artist&artist_id=<?php echo $artist['Artist_Id']?>' onsubmit="return input_validate_update_artist()">
 				<label class='label' for='Artist_Fnames'>First name:</label>
 				<input class='block' type='text' id='Artist_Fnames' name='Artist_Fnames' value='<?php echo $artist['Artist_Fnames'] ?>'>
 				<label class='label' for='Artist_Sname'>Surname:</label>
@@ -105,7 +80,7 @@
 						?>
 					</select>
 				</div>
-				<input type='text' name='Artist_Id' value='<?php echo $_GET['Artist_Id']; ?>' hidden>
+				<input type='text' name='Artist_Id' value='<?php echo $_GET['artist_id']; ?>' hidden>
 				<input type='text' name='NumberOfCategories' id='NumberOfCategories' value='1' hidden>
 				<input type='button' id='addNewCategory' value='additional category'>
 				<input type='submit' name='editArtistForm' value='Confirm Changes'>
@@ -117,12 +92,44 @@
 		?>
 	</div>
 </div>
-<!-- End of all Content -->
-
-<!-- Footer Template -->
-<?php include('template/footer.php'); ?>
-<!-- End Footer Template -->
-<script type="text/javascript">
+<script type='text/javascript'>
+function input_validate_update_artist(){
+	var messages = "";
+	if(document.getElementById("Artist_Fnames").value.trim() === ""){
+		messages += "Please enter a First name.<br/>";
+	}
+	if(document.getElementById("Artist_Sname").value.trim() === ""){
+		messages += "Please enter a Surnname.<br/>";
+	}
+	if(document.getElementById("Artist_Email").value.trim() === ""){
+		messages += "Please enter an Email address.<br/>";
+	}
+	if(document.getElementById("Artist_PhoneDay").value.trim() === ""){
+		messages += "Please enter a Daytime phone contact.<br/>";
+	}
+	if(document.getElementById("Artist_Mobile").value.trim() === ""){
+		messages += "Please enter a Mobile Phone Number.<br/>";
+	}
+	var categories = {};
+	var hasMatches = false;
+	for(var i = 1; i <= numberSelects; ++i){
+		categories[i] = document.getElementById("ArtistCategory" + i).value;
+		for(var j = 1; j < Object.keys(categories).length; ++j){
+			if(categories[i] === categories[j]){
+				hasMatches = true;
+			}
+		}
+	}
+	if(hasMatches){
+		messages += "Please do not submit duplicate categories.<br/>";
+	}
+	if(messages !== ""){
+		document.getElementById("errorOutput").hidden = false;
+		document.getElementById("errorOutput").innerHTML = messages.trim();
+		return false;
+	}
+	return true;
+}
 document.getElementById("addNewCategory").addEventListener('click', addNewCategoryField);
 </script>
 </body>

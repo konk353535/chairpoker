@@ -38,7 +38,6 @@
     <div class="mainContent">
 
     	<?php
-		session_start();
 
 		include("db_connect.php");
 
@@ -57,7 +56,7 @@
 			$row = $event_stmt->fetch();
 
 			// Change this to 3 after testing it works
-			if($_SESSION["AuthLevel"] == 1){
+			if($_SESSION["AuthLevel"] == 3){
 
 				$event_description = $row["Event_Descrip"];
 				$event_date = $row["Event_Date"];

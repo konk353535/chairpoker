@@ -35,7 +35,8 @@
 					<a class='styledLink' href='adminArtistCategories.php'>Artist Category Types</a>
 				</li>
 				<li>
-					<a class='styledLink' href='adminNotices.php'>Bulletin board submissions</a>
+					<!-- notices has interfaces for editing and deleting notices, admin has rights to every one -->
+					<a class='styledLink' href='notices.php'>Bulletin board submissions</a>
 				</li>
 			</ul>
 		<?php

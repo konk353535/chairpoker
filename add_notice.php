@@ -69,11 +69,6 @@
     <!-- End of Main Content -->
 
     </div>
-    <div class="sideContent bgPrimary">
-        <h1>Hello</h1>
-        <p>Test</p>
-    </div>
-
 </div>
 <!-- End of all Content -->
 

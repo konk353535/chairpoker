@@ -103,24 +103,6 @@
     padding: 0px;
     margin: 0px;
 }
-
-.footer_nav ul li a{
-    display: inline-block;
-    padding-right: 15px;
-    padding-left: 15px;
-    text-decoration: none;   
-}
-.footer_nav ul li{
-    display: inline;
-    text-align: center;
-}
-.footer_nav ul{
-    padding: 0px;
-    margin: 0px;
-}
-
-
-
 .navbar {
     margin-top: 0px;
     margin-bottom: 10px;
@@ -144,7 +126,6 @@
 
 .mainContent {
 	padding: 10px;
-	text-align: left;
 }
 .sideContent {
 	width: 33%;
@@ -211,14 +192,39 @@
     text-align: center;
 }
 
+.artist_image {
+    width: 120px;
+    height: auto;
+    border: 3px solid black;
+    display: inline-block;
+    margin-top: 10px;
+}
+.artist_group {
+    display: inline-block;
+}
+.artist_group .artist_title {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.artist_group .artist_description {
+    display: inline-block;
+    padding: 10px;
+    vertical-align: top;
+    width: 800px;
+}
+.artist_group .artist_controls {
+    width: 120px;
+    text-align: center;
+}
+
 h1 {
-	font-family: 'Open Sans', sans-serif;
+    font-family: 'Open Sans', sans-serif;
 }
 h2 {
-	font-family: 'Open Sans', sans-serif;
+    font-family: 'Open Sans', sans-serif;
 }
 h3 {
-	font-family: 'Open Sans', sans-serif;
+    font-family: 'Open Sans', sans-serif;
 }
 
 .error_message {
@@ -258,7 +264,7 @@ h3 {
     text-align: center;
 }
 body {
-	background-color: #f8f8f8;
+    background-color: #f8f8f8;
 }
 
 .label {
@@ -275,19 +281,11 @@ body {
 .no_resize {
     resize: vertical;
 }
-
 #clearAll {
 	clear: both;
 }
-.homepicFloatleft {
-	float:left;
-	margin-right:100px;
-	margin-left:50px;
-}
-.homepicfloatright {
-	float:right;
-	margin-right:100px;
-	margin-left:50px;
+.picFloatL {
+	float: left;
 }
 
 #contact_tagline {
@@ -337,6 +335,7 @@ hr {
 
 a , a:visited{
 	color:#4183c4;
+	text-decoration:none;
 }
 a:hover, a:focus { 
 	color: #4183c4;
@@ -346,4 +345,3 @@ a:hover, a:focus {
 .block {
     display: block;
 }
-

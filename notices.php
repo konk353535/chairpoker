@@ -31,7 +31,7 @@
 
 	include("db_connect.php");
 
-	// We have a new notice submittion
+	// We have a new notice submition
 	if(isset($_GET['action'])){
 		if($_GET['action'] == "new_notice"){
 			// Get Level Authority
