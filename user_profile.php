@@ -20,23 +20,19 @@
     <div class="mainContent bgPrimary">
 	  <?php
 		if(isset($_SESSION['AuthLevel'])){
-	  		echo "<h1>Your Membership Profile</h1>";
+			echo "<h1>Your Membership Profile</h1>";
 			if($_SESSION['AuthLevel'] == 3) {
 				echo "<p>As a member with Administrator rights, you can make manual adjustments to the site's user submitted notices, artists, and information for upcoming events.</p>\n
 				<a href='adminControlPage.php'>Control Page</a>";
 			}
-			
-	    }
-        else {
-	    	echo "<div class='error_message'>You must log in to access your profile</div>";
-	    }
+
+		}	
+		else {
+			echo "<div class='error_message'>You must log in to access your profile</div>";
+		}
 	  ?>
 	</div>
 
-	<div class="sideContent bgPrimary">
-		<h1>Hello</h1>
-		<p>Test</p>
-	</div>
 
 </div>
 <!-- End of all Content -->
