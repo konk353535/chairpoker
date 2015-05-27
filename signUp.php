@@ -65,27 +65,21 @@
       <h1>Sign up Today:</h1>
 		<!-- needs styling to format -->
 		<form id="signUpForm" method="post" action="addMember.php?redirectFail=signUp.php" onsubmit="return input_validate_member()">
-			<label for="Email">Email Address:</label>
-			<input type="text" name="Email" id="Email">
-			<label for="Fname">First Name(s):</label>
-			<input type="text" name="Fname" id="Fname">
-			<label for="Sname">Surname:</label>
-			<input type="text" name="Sname" id="Sname">
-			<label for="Password">Account Password:</label>
-			<input type="password" name="Password" id="Password">
-			<label for="ConfirmPassword">Confirm Password:</label>
-			<input type="password" name="ConfirmPassword" id="ConfirmPassword">
-			<input type="submit" name="signUpForm" value="Sign up">
+			<label for="Email" class="label">Email Address</label>
+			<input type="text" name="Email" id="Email" class="block">
+			<label for="Fname" class="label">First Name(s)</label>
+			<input type="text" name="Fname" id="Fname" class="block">
+			<label for="Sname" class="label">Surname</label>
+			<input type="text" name="Sname" id="Sname" class="block">
+			<label for="Password" class="label">Account Password</label>
+			<input type="password" name="Password" id="Password" class="block">
+			<label for="ConfirmPassword" class="label">Confirm Password</label>
+			<input type="password" name="ConfirmPassword" id="ConfirmPassword" class="block">
+			<input type="submit" name="signUpForm" value="Sign up" style="margin-top: 10px;">
 		</form>
 	<div id="errorOutput" class="error_message" hidden></div>
-    <!-- End of Main Content -->
 
     </div>
-    <div class="sideContent bgPrimary">
-        <h1>Hello</h1>
-        <p>Test</p>
-    </div>
-
 </div>
 <!-- End of all Content -->
 

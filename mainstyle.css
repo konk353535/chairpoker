@@ -312,3 +312,7 @@ a:hover, a:focus {
 	color: #4183c4;
 	text-decoration: underline;
 }
+
+.block {
+    display: block;
+}
