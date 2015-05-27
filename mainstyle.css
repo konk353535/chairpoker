@@ -144,6 +144,7 @@
 
 .mainContent {
 	padding: 10px;
+	text-align: left;
 }
 .sideContent {
 	width: 33%;
@@ -210,13 +211,19 @@
     text-align: center;
 }
 h1 {
-    font-family: 'Open Sans', sans-serif;
+	font-family: 'Open Sans', sans-serif;
+	text-align: center;
+	font-size: 100px;
 }
 h2 {
-    font-family: 'Open Sans', sans-serif;
+	font-family: 'Open Sans', sans-serif;
+	color: #4183c4;
+	text-align: right;
 }
 h3 {
-    font-family: 'Open Sans', sans-serif;
+	font-family: 'Open Sans', sans-serif;
+	text-align: right;
+	color: #4183c4;
 }
 
 .error_message {
@@ -256,7 +263,8 @@ h3 {
     text-align: center;
 }
 body {
-    background-color: #f8f8f8;
+	background-color: #f8f8f8;
+	text-align: center;
 }
 
 .label {
@@ -273,12 +281,28 @@ body {
 .no_resize {
     resize: vertical;
 }
+<<<<<<< Updated upstream
 #clearAll {
 	clear: both;
 }
-.picFloatL {
-	float: left;
+.homepicFloatleft {
+	float:left;
+	margin-right:100px;
+	margin-left:50px;
 }
+.homepicfloatright {
+	float:right;
+	margin-right:100px;
+	margin-left:50px;
+}
+
+
+
+
+<<<<<<< Updated upstream
+=======
+=======
+>>>>>>> Stashed changes
 
 #contact_tagline {
 	font-size: 84px;
@@ -315,6 +339,8 @@ hr {
 	
 }
 
+<<<<<<< Updated upstream
+
 .styledLink {
 	color:#4183C4;
 	text-decoration:none;
@@ -325,8 +351,15 @@ hr {
 	text-decoration: underline;
 }
 
+<<<<<<< Updated upstream
 a , a:visited{
 	color:#4183c4;
+=======
+=======
+>>>>>>> Stashed changes
+a {
+	color:#BD1A1D;
+>>>>>>> Stashed changes
 	text-decoration:none;
 }
 a:hover, a:focus { 
@@ -334,6 +367,17 @@ a:hover, a:focus {
 	text-decoration: underline;
 }
 
+
+<<<<<<< Updated upstream
 .block {
     display: block;
 }
+=======
+<<<<<<< Updated upstream
+=======
+
+	
+>>>>>>> Stashed changes
+; 	text-align: center;
+>>>>>>> Stashed changes
+>>>>>>> Stashed changes
