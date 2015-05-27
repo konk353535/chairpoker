@@ -55,7 +55,7 @@
     <hr>
     <p class="contact_undertagline"> Like us on Facebook </p>
     <p class="contactfacebook"><a href="https://www.facebook.com/pages/Townsville-Community-Music-Centre/159636880763534">
-    <img src="images/facebook.gif" alt="facebook icon" ></p></a>
+    <img src="images/facebook.gif" alt="facebook icon" ></a></p>
                         
     </div>
 </div>
