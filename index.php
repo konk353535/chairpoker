@@ -52,11 +52,7 @@
 
 <!-- Footer Template -->
 
-<div class="wrapper bgPrimary">
-    <div class="footer">
-        Footer Content 
-    </div>
-</div>
+<?php include('template/footer.php'); ?>
 
 <!-- End Footer Template -->
 

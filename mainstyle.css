@@ -103,6 +103,24 @@
     padding: 0px;
     margin: 0px;
 }
+
+.footer_nav ul li a{
+    display: inline-block;
+    padding-right: 15px;
+    padding-left: 15px;
+    text-decoration: none;   
+}
+.footer_nav ul li{
+    display: inline;
+    text-align: center;
+}
+.footer_nav ul{
+    padding: 0px;
+    margin: 0px;
+}
+
+
+
 .navbar {
     margin-top: 0px;
     margin-bottom: 10px;
