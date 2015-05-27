@@ -39,7 +39,7 @@
         $_SESSION['Name'] = $_POST['Fname'] . " " . $_POST['Sname'];
 		$_SESSION['AuthLevel'] = 1;
         
-       	header("Location: userProfile.php");
+       	header("Location: user_profile.php");
         exit();
     }
     else {

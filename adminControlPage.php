@@ -26,10 +26,10 @@
 		?>
 			<ul>
 				<li>
-					<a class='styledLink' href='adminMemberList.php'>All Members</a>
+					<a class='styledLink' href='adminMemberList.php'>Members</a>
 				</li>
 				<li>
-					<a class='styledLink' href='adminArtistList.php'>All Artists</a>
+					<a class='styledLink' href='adminArtistList.php'>Artists</a>
 				</li>
 				<li>
 					<a class='styledLink' href='adminArtistCategories.php'>Artist Category Types</a>
@@ -43,12 +43,6 @@
 		?>
 	  	
 	</div>
-
-	<div class="sideContent bgPrimary">
-		<h1>Hello</h1>
-		<p>Test</p>
-	</div>
-
 </div>
 <!-- End of all Content -->
 

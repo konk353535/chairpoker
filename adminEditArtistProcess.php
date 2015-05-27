@@ -6,7 +6,6 @@
 	}
 
 	include("db_connect.php");
-	var_dump($_POST);
 	try {
 		$dbh->beginTransaction();
 		$updateArtistStatement = $dbh->prepare("UPDATE Artist SET Artist_Email =?,
@@ -31,9 +30,6 @@
 			$addCatStatement->execute(array($_POST['ArtistCategory' . $i], $_POST['Artist_Id']));
 		}
 		$dbh->commit();
-		$message = "Successfully updated " . $_POST['Artist_Fnames'] . " " . $_POST['Artist_Sname'] . "'s details!";
-		header("Location: adminArtistList.php?success_message=" . $message);
-		exit();
 		
 	} catch (PDOException $e) {
 		$dbh->rollBack();
