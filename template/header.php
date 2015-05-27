@@ -12,7 +12,7 @@
 		<div class="loginForm">
 			<span><?php echo $_SESSION['Name']; ?></span>
 			<form id="form1" name="form1" method="post" action="logout.php?redirect=<?php echo $uri; ?>">
-				<a class="styledLink" href="userProfile.php">My Profile</a>
+				<a class="styledLink" href="user_profile.php">My Profile</a>
 				<div style="text-align:center">
 					<input type="submit" name="logout" value="Log Out" class="input"><br />
 				</div>
