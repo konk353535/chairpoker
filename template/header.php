@@ -28,12 +28,12 @@
                 <input name="Email" type="text" id="textfield" placeholder="Email" class="input"><br />
                 <input name="password" type="password" id="password" placeholder="********" class="input"><br />
                 <input type="submit" name="loginForm" id="button" value="Log In" class="input"><br />
-                <a href="signUp.html">Not a Member? </a>
+                <a href="signUp.php">Not a Member? </a>
             </form>
         </div>
 		<?php } ?>
         <div class="headerImage">
-            <a href="index.html">
+            <a href="index.php">
                 <img src="images/TCMC150100.jpg" width="150" height="100" alt="Townsville Community Music Centre"/>
             </a>
         </div>
