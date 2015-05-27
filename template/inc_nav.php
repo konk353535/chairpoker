@@ -19,7 +19,7 @@
 				<?php
 					} else {
 				?>
-				--><li><a <?php if($pageName === 'userProfile.php'){ echo "class='navbarSelected' "; }?> href="user_profile.php">Profile</a></li><!--
+				--><li><a <?php if($pageName === 'user_profile.php'){ echo "class='navbarSelected' "; }?> href="user_profile.php">Profile</a></li><!--
 				<?php
 					}
 				?>	

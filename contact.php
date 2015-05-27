@@ -24,7 +24,7 @@
 <div class="allContent bgPrimary">
   <div class="mainContent bgPrimary">
 
-    <h1 class="contact_tagline"> Contact Us!</h1>
+    <h1 class="contact_undertagline"> Contact Us!</h1>
     <h2 class= "contact_undertagline"> Have questions? Here's how to reach us!
     <br> Office Hours : 9:30-2:30 Mon-Wed</h2>
 
@@ -52,10 +52,6 @@
     <hr>
     <h3> Queensland Government</h3><img src="images/TGCBF.jpg" width="127" height="91">
     <p> The Gambling Community Benefit Fund has assisted us to obtain office equipment and sound and lighting equipment for our product </p>
-    <hr>
-    <p class="contact_undertagline"> Like us on Facebook </p>
-    <p class="contactfacebook"><a href="https://www.facebook.com/pages/Townsville-Community-Music-Centre/159636880763534">
-    <img src="images/facebook.gif" alt="facebook icon" ></a></p>
                         
     </div>
 </div>
