@@ -144,6 +144,7 @@
 
 .mainContent {
 	padding: 10px;
+	text-align: left;
 }
 .sideContent {
 	width: 33%;
@@ -209,14 +210,15 @@
     width: 120px;
     text-align: center;
 }
+
 h1 {
-    font-family: 'Open Sans', sans-serif;
+	font-family: 'Open Sans', sans-serif;
 }
 h2 {
-    font-family: 'Open Sans', sans-serif;
+	font-family: 'Open Sans', sans-serif;
 }
 h3 {
-    font-family: 'Open Sans', sans-serif;
+	font-family: 'Open Sans', sans-serif;
 }
 
 .error_message {
@@ -256,7 +258,7 @@ h3 {
     text-align: center;
 }
 body {
-    background-color: #f8f8f8;
+	background-color: #f8f8f8;
 }
 
 .label {
@@ -273,11 +275,19 @@ body {
 .no_resize {
     resize: vertical;
 }
+
 #clearAll {
 	clear: both;
 }
-.picFloatL {
-	float: left;
+.homepicFloatleft {
+	float:left;
+	margin-right:100px;
+	margin-left:50px;
+}
+.homepicfloatright {
+	float:right;
+	margin-right:100px;
+	margin-left:50px;
 }
 
 #contact_tagline {
@@ -327,7 +337,6 @@ hr {
 
 a , a:visited{
 	color:#4183c4;
-	text-decoration:none;
 }
 a:hover, a:focus { 
 	color: #4183c4;

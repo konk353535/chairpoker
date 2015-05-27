@@ -1,8 +1,3 @@
-
-
-
-
-
 <!doctype html>
 <html>
 <head>
@@ -26,27 +21,34 @@
 
 <!-- All Content -->
 <div class="allContent">
-    <div class="mainContent bgPrimary">
+  <div class="mainContent bgPrimary">
+    <!-- Main Content Here -->
+    <h1> Welcome!</h1>
 
-    <h2>Die Frankfurter Oompah Band presents:</h2>
-    <h3>A Taste of Bavaria</h3>
-    <img src="images/Oompahlogo600small.png" width="150" height="109" alt="Oompahlogo"/>
-    <p> Traditional Bavarian Music from the laendeer Musikanten and Bavarian Composers, performed in true Oktoberfest style.</p>
 
-    <div id="clearAll"></div>
+    <img src="images/frankfurt.png">
+    
+    <h3> A Taste of Bavaria!</h3>
+    <p>Traditional Bavarian Music from the laendeer Musikanten and Bavarian Composers, performed in true Oktoberfest style.</p>
+    <hr>
+    <h2>Featured Artist</h2>
+    <h3>AVIVA and Friends Go Abroad!</h3>
+    <img src="images/AvivanF500.jpg" alt="AVIVA group pic">
+    <p>Grab your passport and travel with us to the Celtic Highlands and then step into the heart of America!Join us for a toe tappin', soul searchin' journey as AVIVA makes it's way around the world on the first of our two globe trotting adventures!</p>
 
-    <h2>Featured Artist </h2>
-    <h3>Celtic Fire    </h3>
-    <p><strong>The alternative celtic rock band from North Queensland</strong></p>
-    <img src="images/Celtic-Fyre-Wall-with-Fire8small.jpg" width="240" height="123" alt="Celtic Fyre"/><br>
-    <br>
-    They will break your heart with the mournful and eerie sounds of the Great Highland Bagpipe and then crank it up real hard and rock you 'til you drop. <br>
-    <br>
-    This 11 piece band is a fun-loving kick-em-in-the-pants band that just wants to rock - celtic style!  </div>
-    <div id="clearAll"></div>
+    <p>
+    <p style="font-size: 24px; color: #4183c4;"> A Taste of Bavaria!</h3>
+    <p style="text-align: left">Traditional Bavarian Music from the laendeer Musikanten and Bavarian Composers, performed in true Oktoberfest style.</p>
+     <hr>
+    <h2><img src="images/AvivanF500.jpg" alt="AVIVA group pic" class="homepicFloatleft">Featured Artist</h2>
+    <h3>AVIVA and Friends Go Abroad!</h3>
+    <p style="text-align: right;"color: #4183c4>Grab your passport and travel with us to the Celtic Highlands and then step into the heart of America!Join us for a toe tappin', soul searchin' journey as AVIVA makes it's way around the world on the first of our two globe trotting adventures!</p>
 
-    </div>
+    <p> Featuring:Caroline Lloyd-Doolan (Violin),Susan Fraser (Violin), Rebecca Brown (Viola), Carol Radovanovic (Cello), and Paul Neilson (Percussion)</p>
+    <hr>
 
+    
+</div>
 </div>
 <!-- End of all Content -->
 
