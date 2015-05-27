@@ -23,7 +23,7 @@
 				<?php
 					}
 				?>	
-            --><li><a <?php if($pageName === ''){ echo "class='navbarSelected' "; }?> href="">Contact</a></li>
+            --><li><a <?php if($pageName === ''){ echo "class='navbarSelected' "; }?> href="contact.php">Contact</a></li>
             </ul>
         </div>    
     </div>
