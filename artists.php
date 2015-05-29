@@ -174,7 +174,6 @@
 			
 		}
 	}
-
 	?>
 	
 	<a href="add_artist.php">Add Artist</a>
@@ -185,7 +184,6 @@
 <?php
 		// Outputting all artists
 		$artists = $dbh->query("SELECT * FROM Artist");
-		
 		while($row = $artists->fetch()){
 			// Get the first image associated to this artist
 			$artist_image = $dbh->query("SELECT * FROM Image WHERE Img_Id = (Select Img_Id From ArtistImage WHERE Artist_Id = " . $row['Artist_Id'] . ")");
@@ -216,3 +214,16 @@
 			echo "</div>";
 		}
 	?>
+    
+</div>
+</div>
+<!-- End of all Content -->
+
+<!-- Footer Template -->
+
+<?php include('template/footer.php'); ?>
+
+<!-- End Footer Template -->
+
+</body>
+</html>
