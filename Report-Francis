@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Report</title>
+</head>
+
+<body>
+<h1>CP1406/CP2010 - 2015 - TCMC Report</h1>
+<h2>Chairpoker</h2>
+<p><strong>Members:</strong> Francis Miria, Kate Abbot, James Mcniell, Steven Scharf</p>
+<a href="http://ditwebtsv.jcu.edu.au/~tcmc01/">Site Home Page</a><br>
+<a href="http://ditwebtsv.jcu.edu.au/~tcmc01/?">Admin Page/Login</a>
+<p><a href="http://github.com/?" target="_blank">Chairpoker</a></p>
+<h2>Mission Statement</h2>
+<p>re-state your mission here</p>
+<h2>Completed Work by Who</h2>
+<p>brief details of who did what</p>
+<ul>
+  <li><strong>Jason Romaior: </strong>. Php and Styling for all notice and Events pages, polished and refined template..</li>
+  <li><strong>Katelyn Abbott: </strong>Completed the plan and styling for the contact page. ...</li>
+  <li><strong>Steven Scharfe: </strong>.. Front End design and Front End Implementation.</li>
+  <li><strong>James McNeill: </strong>.Database structure, login/authentication, admin manual access control pages ..</li>
+   <li><strong>Francis Miria: </strong>.PHP-artist category ..</li>
+</ul>
+<h2>Testing Details</h2>
+<p>any details required to test the site, including usernames, passwords, instructions if needed, outstanding issues (like things that look as though they work but don't)</p>
+<p><strong>Admin username: </strong>.'admin@host.com'..</p>
+<p><strong>Admin password: </strong>.'secret..</p>
+<h2>References</h2>
+<p>references (links) for any code, images or content that you have used that are not your own</p>
+<h2>PMI</h2>
+<p>your group should spend some time reflecting on the process and describe here the Pluses, Minuses and Interesting aspects of your teamwork process and result</p>
+<p><strong>Pluses: </strong>...</p>
+<p><strong>Minuses: </strong>...</p>
+<p><strong>Interesting: </strong>...</p>
+</body>
+</html>
