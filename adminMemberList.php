@@ -54,7 +54,7 @@
 						<td name='row_Sname'><?php echo $row['Member_Sname'] ?></td>
 						<td name='row_Email'><?php echo $row['Member_Email'] ?></td>
 						<td name='row_Mobile'><?php echo $reg_level_name ?></td>
-						<td ><a class='styledLink' href='adminMemberEdit.php?Member_Id=<?php echo $row['Member_Id']?>'>Edit</a></td>
+						<td ><a class='styledLink' href='adminMemberEdit.php?Member_Id=<?php echo $row['Member_Id']?>'>Edit</a>|<a class='styledLink' href='admin_delete_member.php?member_id=<?php echo $row['Member_Id']; ?>'>Delete</a></td>
 					</tr>
 		<?php
 				}
